@@ -1,0 +1,145 @@
+[ 2023-08-14 15:59:56,916 ] 15 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Ingestion <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-08-14 15:59:56,917 ] 22 root - INFO - Exporting collection data as pandas dataframe
+[ 2023-08-14 15:59:56,918 ] 21 root - INFO - Reading data from database: Logistic and collection: shipping_data
+[ 2023-08-14 16:00:09,792 ] 23 root - INFO - Found columns: Index(['_id', 'ID', 'Project Code', 'PQ #', 'PO / SO #', 'ASN/DN #', 'Country',
+       'Managed By', 'Fulfill Via', 'Vendor INCO Term', 'Shipment Mode',
+       'PQ First Sent to Client Date', 'PO Sent to Vendor Date',
+       'Scheduled Delivery Date', 'Delivered to Client Date',
+       'Delivery Recorded Date', 'Product Group', 'Sub Classification',
+       'Vendor', 'Item Description', 'Molecule/Test Type', 'Brand', 'Dosage',
+       'Dosage Form', 'Unit of Measure (Per Pack)', 'Line Item Quantity',
+       'Line Item Value', 'Pack Price', 'Unit Price', 'Manufacturing Site',
+       'First Line Designation', 'Weight (Kilograms)', 'Freight Cost (USD)',
+       'Line Item Insurance (USD)'],
+      dtype='object')
+[ 2023-08-14 16:00:09,848 ] 25 root - INFO - Dropping column: _id 
+[ 2023-08-14 16:00:09,887 ] 27 root - INFO - Row and columns in df: (10324, 33)
+[ 2023-08-14 16:00:09,887 ] 28 root - INFO - Replacing column space by underscore
+[ 2023-08-14 16:00:09,947 ] 31 root - INFO - Columns in dataframe : Index(['ID', 'Project_Code', 'PQ_#', 'PO_/_SO_#', 'ASN/DN_#', 'Country',
+       'Managed_By', 'Fulfill_Via', 'Vendor_INCO_Term', 'Shipment_Mode',
+       'PQ_First_Sent_to_Client_Date', 'PO_Sent_to_Vendor_Date',
+       'Scheduled_Delivery_Date', 'Delivered_to_Client_Date',
+       'Delivery_Recorded_Date', 'Product_Group', 'Sub_Classification',
+       'Vendor', 'Item_Description', 'Molecule/Test_Type', 'Brand', 'Dosage',
+       'Dosage_Form', 'Unit_of_Measure_(Per_Pack)', 'Line_Item_Quantity',
+       'Line_Item_Value', 'Pack_Price', 'Unit_Price', 'Manufacturing_Site',
+       'First_Line_Designation', 'Weight_(Kilograms)', 'Freight_Cost_(USD)',
+       'Line_Item_Insurance_(USD)'],
+      dtype='object')
+[ 2023-08-14 16:00:09,948 ] 32 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-08-14 16:00:09,949 ] 34 root - INFO -  ID : int64
+[ 2023-08-14 16:00:09,949 ] 34 root - INFO -  Project_Code : object
+[ 2023-08-14 16:00:09,950 ] 34 root - INFO -  PQ_# : object
+[ 2023-08-14 16:00:09,951 ] 34 root - INFO -  PO_/_SO_# : object
+[ 2023-08-14 16:00:09,951 ] 34 root - INFO -  ASN/DN_# : object
+[ 2023-08-14 16:00:09,951 ] 34 root - INFO -  Country : object
+[ 2023-08-14 16:00:09,952 ] 34 root - INFO -  Managed_By : object
+[ 2023-08-14 16:00:09,952 ] 34 root - INFO -  Fulfill_Via : object
+[ 2023-08-14 16:00:09,953 ] 34 root - INFO -  Vendor_INCO_Term : object
+[ 2023-08-14 16:00:09,953 ] 34 root - INFO -  Shipment_Mode : object
+[ 2023-08-14 16:00:09,954 ] 34 root - INFO -  PQ_First_Sent_to_Client_Date : object
+[ 2023-08-14 16:00:09,955 ] 34 root - INFO -  PO_Sent_to_Vendor_Date : object
+[ 2023-08-14 16:00:09,955 ] 34 root - INFO -  Scheduled_Delivery_Date : object
+[ 2023-08-14 16:00:09,955 ] 34 root - INFO -  Delivered_to_Client_Date : object
+[ 2023-08-14 16:00:09,956 ] 34 root - INFO -  Delivery_Recorded_Date : object
+[ 2023-08-14 16:00:09,956 ] 34 root - INFO -  Product_Group : object
+[ 2023-08-14 16:00:09,957 ] 34 root - INFO -  Sub_Classification : object
+[ 2023-08-14 16:00:09,957 ] 34 root - INFO -  Vendor : object
+[ 2023-08-14 16:00:09,958 ] 34 root - INFO -  Item_Description : object
+[ 2023-08-14 16:00:09,958 ] 34 root - INFO -  Molecule/Test_Type : object
+[ 2023-08-14 16:00:09,958 ] 34 root - INFO -  Brand : object
+[ 2023-08-14 16:00:09,958 ] 34 root - INFO -  Dosage : object
+[ 2023-08-14 16:00:09,959 ] 34 root - INFO -  Dosage_Form : object
+[ 2023-08-14 16:00:09,959 ] 34 root - INFO -  Unit_of_Measure_(Per_Pack) : int64
+[ 2023-08-14 16:00:09,959 ] 34 root - INFO -  Line_Item_Quantity : int64
+[ 2023-08-14 16:00:09,959 ] 34 root - INFO -  Line_Item_Value : float64
+[ 2023-08-14 16:00:09,960 ] 34 root - INFO -  Pack_Price : float64
+[ 2023-08-14 16:00:09,960 ] 34 root - INFO -  Unit_Price : float64
+[ 2023-08-14 16:00:09,960 ] 34 root - INFO -  Manufacturing_Site : object
+[ 2023-08-14 16:00:09,960 ] 34 root - INFO -  First_Line_Designation : object
+[ 2023-08-14 16:00:09,960 ] 34 root - INFO -  Weight_(Kilograms) : object
+[ 2023-08-14 16:00:09,961 ] 34 root - INFO -  Freight_Cost_(USD) : object
+[ 2023-08-14 16:00:09,961 ] 34 root - INFO -  Line_Item_Insurance_(USD) : float64
+[ 2023-08-14 16:00:09,961 ] 36 root - INFO - Reordering column ASN/DN and PO_/_SO_# since it contain two values
+[ 2023-08-14 16:00:09,996 ] 40 root - INFO - Converting PQ_First_Sent_to_Client_Date column into Date format
+[ 2023-08-14 16:00:10,364 ] 46 root - INFO - Applying date transformation on date columns to change datatype from object to date
+[ 2023-08-14 16:00:16,280 ] 50 root - INFO - Applying weight value filling to column
+[ 2023-08-14 16:00:16,345 ] 60 root - INFO -  ID : int64
+[ 2023-08-14 16:00:16,345 ] 60 root - INFO -  Project_Code : object
+[ 2023-08-14 16:00:16,346 ] 60 root - INFO -  PQ_# : object
+[ 2023-08-14 16:00:16,346 ] 60 root - INFO -  PO_/_SO_# : object
+[ 2023-08-14 16:00:16,346 ] 60 root - INFO -  ASN/DN_# : object
+[ 2023-08-14 16:00:16,346 ] 60 root - INFO -  Country : object
+[ 2023-08-14 16:00:16,346 ] 60 root - INFO -  Managed_By : object
+[ 2023-08-14 16:00:16,347 ] 60 root - INFO -  Fulfill_Via : object
+[ 2023-08-14 16:00:16,348 ] 60 root - INFO -  Vendor_INCO_Term : object
+[ 2023-08-14 16:00:16,348 ] 60 root - INFO -  Shipment_Mode : object
+[ 2023-08-14 16:00:16,348 ] 60 root - INFO -  PQ_First_Sent_to_Client_Date : datetime64[ns]
+[ 2023-08-14 16:00:16,348 ] 60 root - INFO -  PO_Sent_to_Vendor_Date : object
+[ 2023-08-14 16:00:16,349 ] 60 root - INFO -  Scheduled_Delivery_Date : datetime64[ns]
+[ 2023-08-14 16:00:16,349 ] 60 root - INFO -  Delivered_to_Client_Date : datetime64[ns]
+[ 2023-08-14 16:00:16,349 ] 60 root - INFO -  Delivery_Recorded_Date : object
+[ 2023-08-14 16:00:16,349 ] 60 root - INFO -  Product_Group : object
+[ 2023-08-14 16:00:16,349 ] 60 root - INFO -  Sub_Classification : object
+[ 2023-08-14 16:00:16,350 ] 60 root - INFO -  Vendor : object
+[ 2023-08-14 16:00:16,350 ] 60 root - INFO -  Item_Description : object
+[ 2023-08-14 16:00:16,350 ] 60 root - INFO -  Molecule/Test_Type : object
+[ 2023-08-14 16:00:16,350 ] 60 root - INFO -  Brand : object
+[ 2023-08-14 16:00:16,351 ] 60 root - INFO -  Dosage : object
+[ 2023-08-14 16:00:16,351 ] 60 root - INFO -  Dosage_Form : object
+[ 2023-08-14 16:00:16,351 ] 60 root - INFO -  Unit_of_Measure_(Per_Pack) : int64
+[ 2023-08-14 16:00:16,351 ] 60 root - INFO -  Line_Item_Quantity : int64
+[ 2023-08-14 16:00:16,352 ] 60 root - INFO -  Line_Item_Value : float64
+[ 2023-08-14 16:00:16,352 ] 60 root - INFO -  Pack_Price : float64
+[ 2023-08-14 16:00:16,352 ] 60 root - INFO -  Unit_Price : float64
+[ 2023-08-14 16:00:16,352 ] 60 root - INFO -  Manufacturing_Site : object
+[ 2023-08-14 16:00:16,352 ] 60 root - INFO -  First_Line_Designation : object
+[ 2023-08-14 16:00:16,353 ] 60 root - INFO -  Weight_(Kilograms) : float64
+[ 2023-08-14 16:00:16,353 ] 60 root - INFO -  Freight_Cost_(USD) : float64
+[ 2023-08-14 16:00:16,353 ] 60 root - INFO -  Line_Item_Insurance_(USD) : float64
+[ 2023-08-14 16:00:16,353 ] 28 root - INFO - Save data in feature store
+[ 2023-08-14 16:00:16,603 ] 32 root - INFO - Any duplicate records:0
+[ 2023-08-14 16:00:16,603 ] 35 root - INFO - Dropping duplicate record
+[ 2023-08-14 16:00:16,867 ] 38 root - INFO -  Rechecking any duplicate record or not
+[ 2023-08-14 16:00:17,062 ] 39 root - INFO - Duplicate record :0
+[ 2023-08-14 16:00:17,062 ] 42 root - INFO - Checking missing value records in dataframe
+[ 2023-08-14 16:00:17,155 ] 43 root - INFO - Missing Records:Freight_Cost_(USD)              2445
+Dosage                          1736
+Weight_(Kilograms)              1507
+Shipment_Mode                    360
+Line_Item_Insurance_(USD)        287
+Line_Item_Quantity                 0
+Molecule/Test_Type                 0
+Brand                              0
+Dosage_Form                        0
+Unit_of_Measure_(Per_Pack)         0
+Line_Item_Value                    0
+Vendor                             0
+Pack_Price                         0
+Unit_Price                         0
+Manufacturing_Site                 0
+First_Line_Designation             0
+Item_Description                   0
+ID                                 0
+Project_Code                       0
+Product_Group                      0
+Delivery_Recorded_Date             0
+Delivered_to_Client_Date           0
+Scheduled_Delivery_Date            0
+PO_Sent_to_Vendor_Date             0
+PQ_First_Sent_to_Client_Date       0
+Vendor_INCO_Term                   0
+Fulfill_Via                        0
+Managed_By                         0
+Country                            0
+ASN/DN_#                           0
+PO_/_SO_#                          0
+PQ_#                               0
+Sub_Classification                 0
+dtype: int64
+[ 2023-08-14 16:00:17,155 ] 45 root - INFO - Create feature store folder if not available
+[ 2023-08-14 16:00:17,328 ] 49 root - INFO - Save df to feature store folder
+[ 2023-08-14 16:00:17,913 ] 55 root - INFO - split dataset into train and test set
+[ 2023-08-14 16:00:17,934 ] 59 root - INFO - create dataset directory folder if not available
+[ 2023-08-14 16:00:17,962 ] 64 root - INFO - Save df to feature store folder
+[ 2023-08-14 16:00:18,449 ] 78 root - INFO - Data ingestion artifact: DataIngestionArtifact(feature_store_file_path='F:\\Shipping_Pricing_Prediction\\artifact\\08142023__155956\\data_ingestion\\feature_store\\SCMS_Delivery_History_Dataset.csv', train_file_path='F:\\Shipping_Pricing_Prediction\\artifact\\08142023__155956\\data_ingestion\\dataset\\train.csv', test_file_path='F:\\Shipping_Pricing_Prediction\\artifact\\08142023__155956\\data_ingestion\\dataset\\test.csv')
