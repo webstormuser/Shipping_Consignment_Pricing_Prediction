@@ -23,14 +23,13 @@ class DataValidation:
             self.validation_error=dict()
         except Exception as e:
             raise CustomException(e, sys)
-
+    
 
     def drop_unrelevant_columns(self,df:pd.DataFrame,column_list:list,report_key_name:str)->Optional[pd.DataFrame]:
         '''This function drops the unrelevant columns from the dataset both from train and test '''
         try:
             unrelevant_columns=self.data_validation_config.unrelevant_columns
             #droppping unrelevant columns which are not usefull for model bulding 
-            logging.info(f" Dropping unrelevant columns from train and test file")
             logging.info(f" Columns to drop :{unrelevant_columns}")
             df.drop(unrelevant_columns,axis=1,inplace=True)
             #return None no columns left
@@ -157,11 +156,13 @@ class DataValidation:
     
     def initiate_data_validation(self)->artifact_entity.DataValidationArtifact:
         try:
+
             unrelevant_columns=self.data_validation_config.unrelevant_columns
 
             logging.info(f"Reading base dataframe")
             base_df = pd.read_csv(self.data_validation_config.base_file_path)
-            
+            #base_df has na as null
+           
 
             logging.info(f"Reading train dataframe")
             train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
@@ -169,7 +170,7 @@ class DataValidation:
             logging.info(f"Reading test dataframe")
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
             
-            
+           
             logging.info(f"Dropping unrelevent columns from base df")
             base_df=self.drop_unrelevant_columns(df=base_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_from_base_df")
             
@@ -179,7 +180,8 @@ class DataValidation:
             logging.info(f" Dropping unrelevent columns from test_df")
             test_df=self.drop_unrelevant_columns(df=test_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_frombase_df")
 
-        
+            
+
 
             logging.info(f"Is all required columns present in train df")
             train_df_columns_status = self.is_required_columns_exists(base_df=base_df, current_df=train_df,report_key_name="missing_columns_within_train_dataset")

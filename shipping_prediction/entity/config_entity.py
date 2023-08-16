@@ -43,5 +43,6 @@ class DataValidationConfig:
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         self.data_validation_dir = os.path.join(training_pipeline_config.artifact_dir , "data_validation")
         self.report_file_path=os.path.join(self.data_validation_dir, "report.yaml")
+        self.threshold=0.3
         self.unrelevant_columns:list =['ID','Project_Code','PQ_#','Item_Description','Managed_By','PO_Sent_to_Vendor_Date','Product_Group','Molecule/Test_Type','Brand','Dosage_Form','Dosage','Manufacturing_Site','Vendor','PQ_First_Sent_to_Client_Date','Scheduled_Delivery_Date','Delivered_to_Client_Date','Delivery_Recorded_Date']
         self.base_file_path = os.path.join("SCMS_Delivery_History_Dataset.csv")
