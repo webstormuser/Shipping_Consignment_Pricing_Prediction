@@ -1,5 +1,5 @@
 from shipping_prediction import utils
-from  shipping_prediction.exception import CustomException
+from  shipping_prediction.exception import ShippingException
 from  shipping_prediction.logger import logging
 from  shipping_prediction.entity import artifact_entity 
 from shipping_prediction.entity import config_entity
@@ -15,7 +15,7 @@ class DataIngestion:
             logging.info(f"{'>>'*20} Data Ingestion {'<<'*20}")
             self.data_ingestion_config = data_ingestion_config
         except Exception as e:
-            raise CustomException(error_message=e, error_detail=sys)
+            raise ShippingException(error_message=e, error_detail=sys)
 
     def initiate_data_ingestion(self)->artifact_entity.DataIngestionArtifact:
         try:
@@ -79,4 +79,4 @@ class DataIngestion:
             return data_ingestion_artifact
 
         except Exception as e:
-            raise CustomException(error_message=e, error_detail=sys)
+            raise ShippingException(error_message=e, error_detail=sys)

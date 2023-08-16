@@ -1,0 +1,14 @@
+data_drift_within_test_dataset:
+  Days_to_Process:
+    pvalues: 0.0
+    same_distribution: false
+  Freight_Cost_(USD):
+    p_values: 4.2706947636672624e-165
+    same_distribution: false
+data_drift_within_train_dataset:
+  Days_to_Process:
+    pvalues: 0.0
+    same_distribution: false
+  Freight_Cost_(USD):
+    p_values: 5.454489620103214e-228
+    same_distribution: false

@@ -1,5 +1,5 @@
 from shipping_prediction.logger import logging
-from shipping_prediction.exception import CustomException
+from shipping_prediction.exception import ShippingException
 from  shipping_prediction.utils import get_collection_as_dataframe
 import os,sys
 from  shipping_prediction.entity import config_entity

@@ -1,10 +1,11 @@
 from shipping_prediction.logger import logging
-from shipping_prediction.exception import CustomException
+from shipping_prediction.exception import ShippingException
 from  shipping_prediction.utils import get_collection_as_dataframe
 import os,sys
 from  shipping_prediction.entity import config_entity
 from shipping_prediction.components.data_ingestion import DataIngestion
 from shipping_prediction.components.data_validation import DataValidation
+import traceback
 
 def start_training_pipeline():
     try:
@@ -22,7 +23,7 @@ def start_training_pipeline():
 
         data_validation_artifact = data_validation.initiate_data_validation()
     except Exception as e :
-        raise CustomException(e,sys)
+        raise ShippingException(e,sys)
 
 
         

@@ -1,6 +1,6 @@
 import pandas as pd
 from shipping_prediction.logger import logging
-from shipping_prediction.exception import CustomException
+from shipping_prediction.exception import ShippingException
 from shipping_prediction.config import mongo_client
 import os,sys
 import yaml
@@ -54,15 +54,16 @@ def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataF
         df['Freight_Cost_(USD)']=df['Freight_Cost_(USD)'].apply(trans_freight_cost)
         df['Freight_Cost_(USD)']=df['Freight_Cost_(USD)'].astype('float')
         
+        
         logging.info(f"from columns Delivery_Recorded_Date and PQ_First_Sent_to_Client_Date making new column days_to_process")
         df['Days_to_Process']=df['Delivery_Recorded_Date']-df['PQ_First_Sent_to_Client_Date']
         df['Days_to_Process']=df['Days_to_Process'].dt.days.astype('int64')
-        
+                
         for col in df.columns:
                 logging.info(f" {col} : {df[col].dtype}")
         return df
     except Exception as e:
-        raise CustomException(e, sys)
+        raise ShippingException(e, sys)
 
 
 def reorder(data):
@@ -105,5 +106,5 @@ def write_yaml_file(file_path,data:dict):
         with open(file_path,"w") as file_writer:
             yaml.dump(data,file_writer)
     except Exception as e:
-        raise CustomException(e, sys)
+        raise ShippingException(e, sys)
 

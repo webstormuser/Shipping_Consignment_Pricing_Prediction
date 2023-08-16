@@ -8,7 +8,7 @@ def error_message_detail(error, error_detail):
     )
     return error_message
 
-class CustomException(Exception):
+class ShippingException(Exception):
     def __init__(self, error_message, error_detail):
         self.error_message = error_message_detail(
             error_message, error_detail=error_detail)
