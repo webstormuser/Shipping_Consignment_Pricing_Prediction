@@ -1,3 +1,5 @@
+LICENSE
+README.md
 setup.py
 Shipping_Pricing_Prediction.egg-info/PKG-INFO
 Shipping_Pricing_Prediction.egg-info/SOURCES.txt

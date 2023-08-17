@@ -6,6 +6,7 @@ import os,sys
 import yaml
 import numpy as np
 import pickle 
+import joblib
 import re 
 def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataFrame:
     """
@@ -108,3 +109,24 @@ def write_yaml_file(file_path,data:dict):
     except Exception as e:
         raise ShippingException(e, sys)
 
+def save_numpy_array_data(file_path: str, array: np.array):
+    """
+    Save numpy array in file in .npz format
+    file_path is the location of file where to store numpy array
+    """
+    try:
+        dir_path = os.path.dirname(file_path)
+        os.makedirs(dir_path, exist_ok=True)
+        np.savez(file_path, array=array)
+    except Exception as e:
+        raise ShippingException(e, sys) from e
+
+def save_object(file_path: str, obj: object) -> None:
+    try:
+        logging.info("Entered the save_object method of utils")
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        with open(file_path, "wb") as file_obj:
+            joblib.dump(obj, file_obj)
+        logging.info("Exited the save_object method of utils")
+    except Exception as e:
+        raise ShippingException(e, sys) from e

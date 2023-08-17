@@ -30,7 +30,7 @@ class DataValidation:
         try:
             unrelevant_columns=self.data_validation_config.unrelevant_columns
             # Convert column names in the list to lowercase with underscores
-            column_list_lower_underscore = [col.lower().replace(' ', '_') for col in column_list]
+            column_list_lower_underscore = [col.lower().replace(' ', '_') for col in unrelevant_columns]
 
             # Get the matching column names from the DataFrame
             matching_columns = [col for col in df.columns if col.lower() in column_list_lower_underscore]
@@ -149,19 +149,18 @@ class DataValidation:
         try:
 
             unrelevant_columns=self.data_validation_config.unrelevant_columns
-
             logging.info(f"Reading base dataframe")
             base_df = pd.read_csv(self.data_validation_config.base_file_path)
             # Replace spaces with underscores in the base DataFrame's column names
             base_df.columns = [col.replace(' ', '_') for col in base_df.columns]
-             
-            #logging.info(f"from columns Delivery_Recorded_Date and PQ_First_Sent_to_Client_Date making new column days_to_process")
-    
             #base_df has na as null
            
 
             logging.info(f"Reading train dataframe")
             train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
+            logging.info(f"Reading test dataframe")
+            test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
+  
       
             logging.info(f"Adding new columns from data ingestion to base_df if missing")
             new_columns_added = set(train_df.columns) - set(base_df.columns)
@@ -173,12 +172,10 @@ class DataValidation:
 
             logging.info(f"train_df{train_df.columns}")
 
-            logging.info(f"Reading test dataframe")
-            test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
      
             logging.info(f"test_df{test_df.columns}")
             
-           
+       
             logging.info(f"Dropping unrelevent columns from base df")
             base_df=self.drop_unrelevant_columns(df=base_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_from_base_df")
             

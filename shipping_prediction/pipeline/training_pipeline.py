@@ -5,6 +5,7 @@ import os,sys
 from  shipping_prediction.entity import config_entity
 from shipping_prediction.components.data_ingestion import DataIngestion
 from shipping_prediction.components.data_validation import DataValidation
+from shipping_prediction.components.data_transformation import DataTransformation
 import traceback
 
 def start_training_pipeline():
@@ -22,6 +23,13 @@ def start_training_pipeline():
                                         data_ingestion_artifact=data_ingestion_artifact)
 
         data_validation_artifact = data_validation.initiate_data_validation()
+
+
+        # data transformation
+        data_transformation_config = config.DataTransformationConfig(training_pipeline_config=training_pipeline_config)
+        data_transformation = DataTransformation(data_transformation_config=data_transformation_config, 
+                                                data_ingestion_artifact=data_ingestion_artifact)
+        data_transformation_artifact = data_transformation.initiate_data_transformation()
     except Exception as e :
         raise ShippingException(e,sys)
 
