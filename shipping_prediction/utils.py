@@ -58,7 +58,7 @@ def save_numpy_array_data(file_path: str, array: np.array):
     try:
         dir_path = os.path.dirname(file_path)
         os.makedirs(dir_path, exist_ok=True)
-        np.savez(file_path, array=array)
+        np.save(file_path, array=array)
     except Exception as e:
         raise ShippingException(e, sys) from e
 
