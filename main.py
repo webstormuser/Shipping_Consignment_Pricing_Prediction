@@ -9,7 +9,7 @@ from shipping_prediction.components.data_validation import DataValidation
 from shipping_prediction.components.data_transformation import DataTransformation
 from shipping_prediction.pipeline.training_pipeline import start_training_pipeline
 
-file_path="SCMS_Delivery_History_Dataset.csv"
+
 
 if __name__=="__main__":
     try:

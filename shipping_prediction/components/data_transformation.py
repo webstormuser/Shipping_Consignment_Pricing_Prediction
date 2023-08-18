@@ -73,21 +73,25 @@ class DataTransformation:
         try:
             # reading training and testing file
             logging.info("Reading train and test dataframe")
+            print("Reading train and test dataframe")
             train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
 
+            print("checking any duplicate records inside train and tst")
             logging.info("Checking any duplicate records inside train and test dataframe")
+            print(train_df.duplicated().sum(),test_df.duplicated().sum())
             logging.info(f"Train duplicates{train_df.duplicated().sum()}")
             logging.info(f"Test duplicates{test_df.duplicated().sum()}")
 
             logging.info("Dropping duplicates from train and test dataframe")
+            print("dropping duplicate from train and test df")
             train_df.drop_duplicates(inplace=True)
             test_df.drop_duplicates(inplace=True)
             
             logging.info("Cross checking after dropping duplicates from train and test dataframe")
             logging.info(f"Train duplicate count{train_df.duplicated().sum()}")
             logging.info(f"Test duplicate count{test_df.duplicated().sum()}")
-
+            print(f"after dropping{train_df.duplicated().sum(),test_df.duplicated().sum()}")
             # selecting input feature for train and test dataframe
             input_feature_train_df = train_df.drop(TARGET_COLUMN, axis=1)
             input_feature_test_df = test_df.drop(TARGET_COLUMN, axis=1)
@@ -136,3 +140,8 @@ class DataTransformation:
             return data_transformation_artifact
         except Exception as e:
             raise ShippingException(e, sys)
+
+
+       
+    
+       

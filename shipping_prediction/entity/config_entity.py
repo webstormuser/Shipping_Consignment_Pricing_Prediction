@@ -5,7 +5,7 @@ from datetime import datetime
 from shipping_prediction.config import TARGET_COLUMN
 import yaml
 
-FILE_NAME = "SCMS_Delivery_History_Dataset.csv"
+FILE_NAME = "clean_SCMS_Delivery_History_Dataset.csv"
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
 TRANSFORMER_OBJECT_FILE_NAME = "transformer.pkl"
@@ -24,8 +24,8 @@ class DataIngestionConfig:
 
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         try:
-            self.database_name="Logistic"
-            self.collection_name="shipping_data"
+            self.database_name="clean_Logistic"
+            self.collection_name="clean_shipping_data"
             self.data_ingestion_dir = os.path.join(training_pipeline_config.artifact_dir , "data_ingestion")
             self.feature_store_file_path = os.path.join(self.data_ingestion_dir,"feature_store",FILE_NAME)
             self.train_file_path = os.path.join(self.data_ingestion_dir,"dataset",TRAIN_FILE_NAME)
@@ -45,8 +45,8 @@ class DataValidationConfig:
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         self.data_validation_dir = os.path.join(training_pipeline_config.artifact_dir , "data_validation")
         self.report_file_path=os.path.join(self.data_validation_dir, "report.yaml")
-        self.unrelevant_columns=['ID', 'Project_Code', 'PQ_#','Managed_By','PO_Sent_to_Vendor_Date','Product_Group', 'Scheduled_Delivery_Date', 'Delivered_to_Client_Date','Delivery_Recorded_Date', 'Vendor', 'Item_Description', 'Molecule/Test_Type', 'Brand', 'Dosage','Dosage_Form','Manufacturing_Site']
-        self.base_file_path = os.path.join("SCMS_Delivery_History_Dataset.csv")
+        self.unrelevant_columns=['ID', 'Project_Code', 'PQ_#','Managed_By','PO_Sent_to_Vendor_Date','Product_Group', 'Scheduled_Delivery_Date', 'Delivered_to_Client_Date','Delivery_Recorded_Date', 'Vendor', 'Item_Description', 'Molecule/Test_Type', 'Brand', 'Dosage','Dosage_Form','Manufacturing_Site','PQ_First_Sent_to_Client_Date']
+        self.base_file_path = os.path.join("clean_SCMS_Delivery_History_Dataset.csv")
 
 class DataTransformationConfig:
 

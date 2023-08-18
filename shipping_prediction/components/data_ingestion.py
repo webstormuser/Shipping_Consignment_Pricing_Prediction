@@ -27,7 +27,8 @@ class DataIngestion:
 
             logging.info("Save data in feature store")
 
-          
+            
+            
             #checking any duplicate record inside the dataset or not
             logging.info(f"Any duplicate records:{df.duplicated().sum()}")
 
@@ -39,8 +40,7 @@ class DataIngestion:
             logging.info(f"Duplicate record :{df.duplicated().sum()}")
 
            
-            logging.info(f"Checking missing value records in dataframe")
-            logging.info(f"Missing Records:{df.isna().sum().sort_values(ascending=False)}")
+            logging.info(f"Any missing value inside dataset{df.isna().sum().sort_values(ascending=False)}")
             #Save data in feature store
             logging.info("Create feature store folder if not available")
             #Create feature store folder if not available
@@ -68,7 +68,6 @@ class DataIngestion:
             
             
 
-            
             #Prepare artifact
             data_ingestion_artifact = artifact_entity.DataIngestionArtifact(
                 feature_store_file_path=self.data_ingestion_config.feature_store_file_path,
@@ -77,6 +76,5 @@ class DataIngestion:
 
             logging.info(f"Data ingestion artifact: {data_ingestion_artifact}")
             return data_ingestion_artifact
-
         except Exception as e:
             raise ShippingException(error_message=e, error_detail=sys)
