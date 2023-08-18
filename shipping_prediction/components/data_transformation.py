@@ -6,13 +6,13 @@ import os
 import sys
 import pandas as pd
 import numpy as np
+import pdb
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import RobustScaler
 from sklearn.compose import ColumnTransformer,TransformedTargetRegressor
 from sklearn.impute import SimpleImputer
-from shipping_prediction.components.data_validation import DataValidation
 from shipping_prediction import utils
 from shipping_prediction.config import TARGET_COLUMN
 from sklearn.metrics import r2_score,mean_squared_error,mean_absolute_error
@@ -76,22 +76,12 @@ class DataTransformation:
             print("Reading train and test dataframe")
             train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
-
-            print("checking any duplicate records inside train and tst")
-            logging.info("Checking any duplicate records inside train and test dataframe")
-            print(train_df.duplicated().sum(),test_df.duplicated().sum())
-            logging.info(f"Train duplicates{train_df.duplicated().sum()}")
-            logging.info(f"Test duplicates{test_df.duplicated().sum()}")
-
-            logging.info("Dropping duplicates from train and test dataframe")
-            print("dropping duplicate from train and test df")
-            train_df.drop_duplicates(inplace=True)
-            test_df.drop_duplicates(inplace=True)
-            
-            logging.info("Cross checking after dropping duplicates from train and test dataframe")
-            logging.info(f"Train duplicate count{train_df.duplicated().sum()}")
-            logging.info(f"Test duplicate count{test_df.duplicated().sum()}")
-            print(f"after dropping{train_df.duplicated().sum(),test_df.duplicated().sum()}")
+            print(train_df.shape)
+            logging.info(train_df.shape)
+            print("*****************************")
+            print(test_df.shape)
+            logging.info(f"train_df{train_df.shape}")
+            logging.info(f"test_df{test_df.shape}")
             # selecting input feature for train and test dataframe
             input_feature_train_df = train_df.drop(TARGET_COLUMN, axis=1)
             input_feature_test_df = test_df.drop(TARGET_COLUMN, axis=1)
@@ -140,8 +130,7 @@ class DataTransformation:
             return data_transformation_artifact
         except Exception as e:
             raise ShippingException(e, sys)
-
-
-       
+            logging.error({e})
+      
     
        

@@ -26,9 +26,7 @@ class DataIngestion:
             collection_name=self.data_ingestion_config.collection_name) 
 
             logging.info("Save data in feature store")
-
-            
-            
+           
             #checking any duplicate record inside the dataset or not
             logging.info(f"Any duplicate records:{df.duplicated().sum()}")
 

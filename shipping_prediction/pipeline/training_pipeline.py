@@ -11,6 +11,7 @@ import traceback
 
 def start_training_pipeline():
     try:
+        
         training_pipeline_config = config_entity.TrainingPipelineConfig()
 
         #data ingestion

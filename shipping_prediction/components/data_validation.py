@@ -33,7 +33,7 @@ class DataValidation:
             #droppping unrelevant columns which are not usefull for model bulding 
             logging.info(f" Dropping unrelevant columns from train and test file")
             logging.info(f" Columns to drop :{unrelevant_columns}")
-            df.drop(unrelevant_columns,axis=1,inplace=True)
+            df=df.drop(columns=unrelevant_columns,axis=1)
             #return None no columns left
             if len(df.columns)==0:
                 return None
@@ -64,13 +64,13 @@ class DataValidation:
         
         
         
-    def check_data_drift_categorical(self,base_df:pd.DataFrame, current_df:pd.DataFrame, feature):
+    def check_data_drift_categorical(self, base_data, current_data, feature):
         """
         Checks data drift for a categorical feature using the chi-square test.
 
         Args:
-            data1 (list or array): First dataset containing the feature.
-            data2 (list or array): Second dataset containing the feature.
+            base_data (pd.Series): Categorical data from the base dataset.
+            current_data (pd.Series): Categorical data from the current dataset.
             feature (str): Name of the categorical feature.
 
         Returns:
@@ -78,17 +78,17 @@ class DataValidation:
             p_value (float): The p-value of the chi-square test.
         """
         # Create frequency tables for the feature in both datasets
-        table1 = np.unique(base_df, return_counts=True)
-        table2 = np.unique(current_df, return_counts=True)
+        table1 = pd.Series(base_data).value_counts()
+        table2 = pd.Series(current_data).value_counts()
 
         # Combine the two tables into a single table
-        all_values = set(table1[0]).union(set(table2[0]))
+        all_values = set(table1.index).union(set(table2.index))
         combined_table = {val: [0, 0] for val in all_values}
 
-        for val, count in zip(table1[0], table1[1]):
+        for val, count in table1.items():
             combined_table[val][0] = count
 
-        for val, count in zip(table2[0], table2[1]):
+        for val, count in table2.items():
             combined_table[val][1] = count
 
         # Convert the combined table into an array
@@ -172,15 +172,15 @@ class DataValidation:
             
             logging.info(f"Dropping unrelevent columns from base df")
             base_df=self.drop_unrelevant_columns(df=base_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_from_base_df")
-            logging.info(f"After dropping columns are present in base df {base_df.columns}")
+            logging.info(f"After dropping columns are present in base df {base_df.shape}")
 
             logging.info(f" Dropping unrelevent columns from train_df")
             train_df=self.drop_unrelevant_columns(df=train_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_frombase_df")
-            logging.info(f"After dropping columns are present in train df{train_df.columns}")
+            logging.info(f"After dropping columns are present in train df{train_df.shape}")
 
             logging.info(f" Dropping unrelevent columns from test_df")
             test_df=self.drop_unrelevant_columns(df=test_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_frombase_df")
-            logging.info(f"After dropping columns are present in test df{test_df.columns}")
+            logging.info(f"After dropping columns are present in test df{test_df.shape}")
             
 
 
@@ -190,21 +190,23 @@ class DataValidation:
             test_df_columns_status = self.is_required_columns_exists(base_df=base_df, current_df=test_df,report_key_name="missing_columns_within_test_dataset")
 
 
+            logging.info("Is all required columns present in train df")
+            train_df_columns_status = self.is_required_columns_exists(base_df=base_df, current_df=train_df, report_key_name="missing_columns_within_train_dataset")
+            logging.info("Is all required columns present in test df")
+            test_df_columns_status = self.is_required_columns_exists(base_df=base_df, current_df=test_df, report_key_name="missing_columns_within_test_dataset")
+
             if train_df_columns_status:
-                logging.info(f"As all column are available in train df hence detecting data drift")
-            self.data_drift(base_df=base_df, current_df=train_df,report_key_name="data_drift_within_train_dataset")
+                logging.info("All columns are available in train df. Detecting data drift...")
+                self.data_drift(base_df=base_df, current_df=train_df, report_key_name="data_drift_within_train_dataset")
             if test_df_columns_status:
-                logging.info(f"As all column are available in test df hence detecting data drift")
-            self.data_drift(base_df=base_df, current_df=test_df,report_key_name="data_drift_within_test_dataset")
-
-
+                logging.info("All columns are available in test df. Detecting data drift...")
+                self.data_drift(base_df=base_df, current_df=test_df, report_key_name="data_drift_within_test_dataset")
+            
             #write the report
             logging.info("Write reprt in yaml file")
             utils.write_yaml_file(file_path=self.data_validation_config.report_file_path,
                                 data=self.validation_error)
-            logging.info(f"{base_df.columns}")
-            logging.info(f"{train_df.columns}")
-            logging.info(f"{test_df.columns}")
+           
 
             data_validation_artifact = artifact_entity.DataValidationArtifact(report_file_path=self.data_validation_config.report_file_path,)
             logging.info(f"Data validation artifact: {data_validation_artifact}")
