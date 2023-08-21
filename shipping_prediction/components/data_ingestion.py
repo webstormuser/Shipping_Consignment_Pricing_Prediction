@@ -16,6 +16,7 @@ class DataIngestion:
             self.data_ingestion_config = data_ingestion_config
         except Exception as e:
             raise ShippingException(error_message=e, error_detail=sys)
+            logging.ERROR(e)
 
     def initiate_data_ingestion(self)->artifact_entity.DataIngestionArtifact:
         try:
@@ -76,3 +77,4 @@ class DataIngestion:
             return data_ingestion_artifact
         except Exception as e:
             raise ShippingException(error_message=e, error_detail=sys)
+            logging.ERROR(e)

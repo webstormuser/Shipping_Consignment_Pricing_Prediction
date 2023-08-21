@@ -45,7 +45,7 @@ class DataValidationConfig:
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         self.data_validation_dir = os.path.join(training_pipeline_config.artifact_dir , "data_validation")
         self.report_file_path=os.path.join(self.data_validation_dir, "report.yaml")
-        self.unrelevant_columns:list = ['ID', 'Project_Code', 'PQ_#','Managed_By','PO_Sent_to_Vendor_Date','Product_Group', 'Scheduled_Delivery_Date', 'Delivered_to_Client_Date','Delivery_Recorded_Date', 'Vendor', 'Item_Description', 'Molecule/Test_Type', 'Brand', 'Dosage','Dosage_Form','Manufacturing_Site','PQ_First_Sent_to_Client_Date']
+        self.unrelevant_columns:list = ['ID','Project_Code','PQ_#','Managed_By','PO_Sent_to_Vendor_Date','Product_Group','Scheduled_Delivery_Date','Delivered_to_Client_Date','Delivery_Recorded_Date','Vendor','Item_Description','Molecule/Test_Type','Brand','Dosage','Dosage_Form','Manufacturing_Site','PQ_First_Sent_to_Client_Date']
         self.base_file_path = os.path.join("clean_SCMS_Delivery_History_Dataset.csv")
 
 class DataTransformationConfig:

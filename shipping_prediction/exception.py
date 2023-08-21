@@ -9,7 +9,9 @@ def error_message_detail(error, error_detail):
     return error_message
 
 class ShippingException(Exception):
-    def __init__(self, error_message, error_detail):
+    def __init__(self, error_message, error_detail=None):
+        if error_detail is None:
+            error_detail = sys.exc_info()
         self.error_message = error_message_detail(
             error_message, error_detail=error_detail)
 

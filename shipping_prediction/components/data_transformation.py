@@ -24,7 +24,7 @@ from sklearn.metrics import make_scorer
 
 class DataTransformation:
     def __init__(self,data_transformation_config: config_entity.DataTransformationConfig,
-                data_ingestion_artifact: artifact_entity.DataIngestionArtifact,
+                data_ingestion_artifact: artifact_entity.DataIngestionArtifact
                 ):
         try:
             logging.info(f"{'>>'*20} Data Transformation {'<<'*20}")
@@ -82,9 +82,11 @@ class DataTransformation:
             print(test_df.shape)
             logging.info(f"train_df{train_df.shape}")
             logging.info(f"test_df{test_df.shape}")
+
             # selecting input feature for train and test dataframe
             input_feature_train_df = train_df.drop(TARGET_COLUMN, axis=1)
             input_feature_test_df = test_df.drop(TARGET_COLUMN, axis=1)
+            
 
             # selecting target feature for train and test dataframe
             target_feature_train_df = train_df[TARGET_COLUMN]
