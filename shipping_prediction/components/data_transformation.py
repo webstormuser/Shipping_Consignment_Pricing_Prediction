@@ -37,13 +37,14 @@ class DataTransformation:
     def get_data_transformer_object(cls) -> Pipeline:
         try:
             # Define categorical and numerical features (replace with your actual feature lists)
-            cat_features =['PO_/_SO_#','ASN/DN_#','Country','Fulfill_Via','Vendor_INCO_Term','Shipment_Mode','Sub_Classification','First_Line_Designation'] # List of categorical feature column names
-            num_features = ['Unit_of_Measure_(Per_Pack)','Line_Item_Quantity','Pack_Price','Unit_Price','Weight_(Kilograms)','Freight_Cost_(USD)','Line_Item_Insurance_(USD)','Days_to_Process'] # List of numerical feature column names
+            cat_features =["PO_/_SO_#","ASN/DN_#","Country","Fulfill_Via","Vendor_INCO_Term","Shipment_Mode","Sub_Classification","First_Line_Designation"] # List of categorical feature column names
+            num_features = ["Unit_of_Measure_(Per_Pack)","Line_Item_Quantity","Pack_Price","Unit_Price","Weight_(Kilograms)","Freight_Cost_(USD)","Line_Item_Insurance_(USD)","Days_to_Process"] # List of numerical feature column names
             # Create transformers for categorical and numerical features
-            categorical_transformer = Pipeline(steps=[
+            categorical_transformer = Pipeline(
+                steps=[
                         ('imputer', SimpleImputer(strategy='most_frequent', fill_value='missing')),
                                 ('onehot', OneHotEncoder(drop='first', handle_unknown='ignore'))
-                            ])
+                    ])
             numerical_transformer = Pipeline(steps=[
                             ('imputer', SimpleImputer(strategy='median')),
                             ('scaler', RobustScaler())
@@ -73,20 +74,22 @@ class DataTransformation:
         try:
             # reading training and testing file
             logging.info("Reading train and test dataframe")
-            print("Reading train and test dataframe")
+           
             train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
-            print(train_df.shape)
-            logging.info(train_df.shape)
-            print("*****************************")
-            print(test_df.shape)
+            
             logging.info(f"train_df{train_df.shape}")
             logging.info(f"test_df{test_df.shape}")
 
             # selecting input feature for train and test dataframe
             input_feature_train_df = train_df.drop(TARGET_COLUMN, axis=1)
             input_feature_test_df = test_df.drop(TARGET_COLUMN, axis=1)
-            
+
+            logging.info(f"input feature train df{input_feature_train_df.head()}")
+
+
+            logging.info(f"input feature test df{input_feature_test_df.head()}")
+
 
             # selecting target feature for train and test dataframe
             target_feature_train_df = train_df[TARGET_COLUMN]

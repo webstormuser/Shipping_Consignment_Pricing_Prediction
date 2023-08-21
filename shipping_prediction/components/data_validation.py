@@ -152,7 +152,6 @@ class DataValidation:
             self.validation_error[report_key_name]=drift_report
         except Exception as e:
             raise ShippingException(e, sys)
-            logging.ERROR(e)
     
     
     
@@ -187,9 +186,11 @@ class DataValidation:
             logging.info(f"Is all required columns present in train df")
             train_df_columns_status = self.is_required_columns_exists(base_df=base_df, current_df=train_df,report_key_name="missing_columns_within_train_dataset")
             logging.info(train_df_columns_status)
+
             logging.info(f"Is all required columns present in test df")
             test_df_columns_status = self.is_required_columns_exists(base_df=base_df, current_df=test_df,report_key_name="missing_columns_within_test_dataset")
             logging.info(test_df_columns_status)
+
             if train_df_columns_status:
                 logging.info("All columns are available in train df. Detecting data drift...")
                 self.data_drift(base_df=base_df, current_df=train_df, report_key_name="data_drift_within_train_dataset")
@@ -202,7 +203,12 @@ class DataValidation:
             logging.info("Write reprt in yaml file")
             utils.write_yaml_file(file_path=self.data_validation_config.report_file_path,
                                 data=self.validation_error)
-           
+
+            logging.info(f"After validation base df : {base_df.shape}")
+            logging.info(f"After validaion train df:  {train_df.shape}")
+            logging.info(f"After validation test df:  {test_df.shape}")
+
+
 
             data_validation_artifact = artifact_entity.DataValidationArtifact(
                 report_file_path=self.data_validation_config.report_file_path,

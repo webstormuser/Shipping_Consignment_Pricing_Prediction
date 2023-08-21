@@ -6,31 +6,31 @@ data_drift_within_test_dataset:
     p_values: 1.0
     same_distribution: true
   Days_to_Process:
-    pvalues: 0.5223576816702029
+    pvalues: 0.7288647587047177
     same_distribution: true
   First_Line_Designation:
     p_values: 1.0
     same_distribution: true
   Freight_Cost_(USD):
-    pvalues: 0.6345106621534771
+    pvalues: 0.5483344642771601
     same_distribution: true
   Fulfill_Via:
     p_values: 1.0
     same_distribution: true
   Line_Item_Insurance_(USD):
-    pvalues: 0.9856829273827172
+    pvalues: 0.9548937674866996
     same_distribution: true
   Line_Item_Quantity:
-    pvalues: 0.47817946224058283
+    pvalues: 0.5417888166417809
     same_distribution: true
   Line_Item_Value:
-    pvalues: 0.9530044730881064
+    pvalues: 0.7423223813439539
     same_distribution: true
   PO_/_SO_#:
     p_values: 1.0
     same_distribution: true
   Pack_Price:
-    pvalues: 0.8356212315661529
+    pvalues: 0.39398841876742874
     same_distribution: true
   Shipment_Mode:
     p_values: 1.0
@@ -39,16 +39,16 @@ data_drift_within_test_dataset:
     p_values: 1.0
     same_distribution: true
   Unit_Price:
-    pvalues: 0.847808578851766
+    pvalues: 0.7365753778797863
     same_distribution: true
   Unit_of_Measure_(Per_Pack):
-    pvalues: 0.6869356217382934
+    pvalues: 0.9997993214070949
     same_distribution: true
   Vendor_INCO_Term:
     p_values: 1.0
     same_distribution: true
   Weight_(Kilograms):
-    pvalues: 0.696071504539225
+    pvalues: 0.8928201111189134
     same_distribution: true
 data_drift_within_train_dataset:
   ASN/DN_#:
@@ -58,31 +58,31 @@ data_drift_within_train_dataset:
     p_values: 1.0
     same_distribution: true
   Days_to_Process:
-    pvalues: 0.9998898992353793
+    pvalues: 0.9999983358522887
     same_distribution: true
   First_Line_Designation:
     p_values: 1.0
     same_distribution: true
   Freight_Cost_(USD):
-    pvalues: 0.9999854785853989
+    pvalues: 0.9999285250834837
     same_distribution: true
   Fulfill_Via:
     p_values: 1.0
     same_distribution: true
   Line_Item_Insurance_(USD):
-    pvalues: 0.9999999999999944
+    pvalues: 0.9999999999909089
     same_distribution: true
   Line_Item_Quantity:
-    pvalues: 0.9997792660151559
+    pvalues: 0.9999201619260051
     same_distribution: true
   Line_Item_Value:
-    pvalues: 0.9999999999881165
+    pvalues: 0.9999988414922285
     same_distribution: true
   PO_/_SO_#:
     p_values: 1.0
     same_distribution: true
   Pack_Price:
-    pvalues: 0.9999999495113223
+    pvalues: 0.9992527432548306
     same_distribution: true
   Shipment_Mode:
     p_values: 1.0
@@ -91,14 +91,14 @@ data_drift_within_train_dataset:
     p_values: 1.0
     same_distribution: true
   Unit_Price:
-    pvalues: 0.9999999702034672
+    pvalues: 0.9999986449452032
     same_distribution: true
   Unit_of_Measure_(Per_Pack):
-    pvalues: 0.9999953228424454
+    pvalues: 1.0
     same_distribution: true
   Vendor_INCO_Term:
     p_values: 1.0
     same_distribution: true
   Weight_(Kilograms):
-    pvalues: 0.9999962246358576
+    pvalues: 0.999999997224441
     same_distribution: true
