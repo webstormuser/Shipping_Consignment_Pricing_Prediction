@@ -26,6 +26,8 @@ class DataIngestion:
             database_name=self.data_ingestion_config.database_name, 
             collection_name=self.data_ingestion_config.collection_name) 
 
+            logging.info(f" Shape of df {df.shape}")
+
             logging.info("Save data in feature store")
            
             #checking any duplicate record inside the dataset or not

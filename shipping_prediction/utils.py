@@ -39,6 +39,20 @@ def get_collection_as_dataframe(database_name: str, collection_name: str) -> pd.
     except Exception as e:
         raise ShippingException(e, sys)
 
+'''
+def typo_check(valid_function_names):
+    try:
+        def decorator(func):
+            def wrapper(*args, **kwargs):
+                function_name = func.__name__
+                if function_name not in valid_function_names:
+                    print(f"Warning: Possible typo in function name '{function_name}'")
+                return func(*args, **kwargs)
+            return wrapper
+        return decorator
+    except Exception as e:
+        raise ShippingException(e,sys)
+'''
 
 
 def write_yaml_file(file_path,data:dict):

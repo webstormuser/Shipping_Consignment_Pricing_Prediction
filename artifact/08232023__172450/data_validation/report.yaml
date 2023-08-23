@@ -1,0 +1,104 @@
+data_drift_within_test_dataset:
+  ASN/DN_#:
+    p_values: 1.0
+    same_distribution: true
+  Country:
+    p_values: 1.0
+    same_distribution: true
+  Days_to_Process:
+    pvalues: 0.4608302117823958
+    same_distribution: true
+  First_Line_Designation:
+    p_values: 1.0
+    same_distribution: true
+  Freight_Cost_(USD):
+    pvalues: 0.4142707146942495
+    same_distribution: true
+  Fulfill_Via:
+    p_values: 1.0
+    same_distribution: true
+  Line_Item_Insurance_(USD):
+    pvalues: 0.3861772770464662
+    same_distribution: true
+  Line_Item_Quantity:
+    pvalues: 0.4010915645717258
+    same_distribution: true
+  Line_Item_Value:
+    pvalues: 0.25585855024987914
+    same_distribution: true
+  PO_/_SO_#:
+    p_values: 1.0
+    same_distribution: true
+  Pack_Price:
+    pvalues: 0.9928061642437307
+    same_distribution: true
+  Shipment_Mode:
+    p_values: 1.0
+    same_distribution: true
+  Sub_Classification:
+    p_values: 1.0
+    same_distribution: true
+  Unit_Price:
+    pvalues: 0.9952790469461082
+    same_distribution: true
+  Unit_of_Measure_(Per_Pack):
+    pvalues: 0.9999970264233117
+    same_distribution: true
+  Vendor_INCO_Term:
+    p_values: 1.0
+    same_distribution: true
+  Weight_(Kilograms):
+    pvalues: 0.2466229930891748
+    same_distribution: true
+data_drift_within_train_dataset:
+  ASN/DN_#:
+    p_values: 1.0
+    same_distribution: true
+  Country:
+    p_values: 1.0
+    same_distribution: true
+  Days_to_Process:
+    pvalues: 0.9997132971362345
+    same_distribution: true
+  First_Line_Designation:
+    p_values: 1.0
+    same_distribution: true
+  Freight_Cost_(USD):
+    pvalues: 0.9994370888198872
+    same_distribution: true
+  Fulfill_Via:
+    p_values: 1.0
+    same_distribution: true
+  Line_Item_Insurance_(USD):
+    pvalues: 0.9991678431461333
+    same_distribution: true
+  Line_Item_Quantity:
+    pvalues: 0.9993228780763909
+    same_distribution: true
+  Line_Item_Value:
+    pvalues: 0.9953939744224275
+    same_distribution: true
+  PO_/_SO_#:
+    p_values: 1.0
+    same_distribution: true
+  Pack_Price:
+    pvalues: 0.9999999999999999
+    same_distribution: true
+  Shipment_Mode:
+    p_values: 1.0
+    same_distribution: true
+  Sub_Classification:
+    p_values: 1.0
+    same_distribution: true
+  Unit_Price:
+    pvalues: 1.0
+    same_distribution: true
+  Unit_of_Measure_(Per_Pack):
+    pvalues: 1.0
+    same_distribution: true
+  Vendor_INCO_Term:
+    p_values: 1.0
+    same_distribution: true
+  Weight_(Kilograms):
+    pvalues: 0.9948179353099199
+    same_distribution: true
