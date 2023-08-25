@@ -24,8 +24,8 @@ class DataIngestionConfig:
 
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         try:
-            self.database_name="clean_Logistic"
-            self.collection_name="clean_shipping_data"
+            self.database_name="clean_Logistic1"
+            self.collection_name="clean_shipping_data1"
             self.data_ingestion_dir = os.path.join(training_pipeline_config.artifact_dir , "data_ingestion")
             self.feature_store_file_path = os.path.join(self.data_ingestion_dir,"feature_store",FILE_NAME)
             self.train_file_path = os.path.join(self.data_ingestion_dir,"dataset",TRAIN_FILE_NAME)
@@ -47,6 +47,8 @@ class DataValidationConfig:
         self.report_file_path=os.path.join(self.data_validation_dir, "report.yaml")
         self.unrelevant_columns:list = ['ID','Project_Code','PQ_#','Managed_By','PO_Sent_to_Vendor_Date','Product_Group','Scheduled_Delivery_Date','Delivered_to_Client_Date','Delivery_Recorded_Date','Vendor','Item_Description','Molecule/Test_Type','Brand','Dosage','Dosage_Form','Manufacturing_Site','PQ_First_Sent_to_Client_Date']
         self.base_file_path = os.path.join("clean_SCMS_Delivery_History_Dataset.csv")
+        self.validated_train_file_path = os.path.join(self.data_validation_dir, "validated_train.csv")
+        self.validated_test_file_path = os.path.join(self.data_validation_dir, "validated_test.csv")
 
 class DataTransformationConfig:
 
@@ -56,4 +58,3 @@ class DataTransformationConfig:
         self.transformed_train_path =  os.path.join(self.data_transformation_dir,"transformed",TRAIN_FILE_NAME.replace("csv","npz"))
         self.transformed_test_path =os.path.join(self.data_transformation_dir,"transformed",TEST_FILE_NAME.replace("csv","npz"))
         
-

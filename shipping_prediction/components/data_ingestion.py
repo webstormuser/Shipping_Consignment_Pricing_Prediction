@@ -16,7 +16,7 @@ class DataIngestion:
             self.data_ingestion_config = data_ingestion_config
         except Exception as e:
             raise ShippingException(error_message=e, error_detail=sys)
-            logging.ERROR(e)
+    
 
     def initiate_data_ingestion(self)->artifact_entity.DataIngestionArtifact:
         try:
@@ -51,7 +51,7 @@ class DataIngestion:
             #Save df to feature store folder
             df.to_csv(path_or_buf=self.data_ingestion_config.feature_store_file_path,index=False,header=True)
 
-
+            logging.info(f"base df shape-->{df.shape}")
 
             logging.info("split dataset into train and test set")
             #split dataset into train and test set
@@ -67,8 +67,9 @@ class DataIngestion:
             train_df.to_csv(path_or_buf=self.data_ingestion_config.train_file_path,index=False,header=True)
             test_df.to_csv(path_or_buf=self.data_ingestion_config.test_file_path,index=False,header=True)
             
+            logging.info(f"train df shape--->{train_df.shape}")
             
-
+            logging.info(f"test df shape-->{test_df.shape}")
             #Prepare artifact
             data_ingestion_artifact = artifact_entity.DataIngestionArtifact(
                 feature_store_file_path=self.data_ingestion_config.feature_store_file_path,
@@ -79,4 +80,3 @@ class DataIngestion:
             return data_ingestion_artifact
         except Exception as e:
             raise ShippingException(error_message=e, error_detail=sys)
-            logging.ERROR(e)

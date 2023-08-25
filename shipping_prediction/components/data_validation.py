@@ -4,7 +4,8 @@ from shipping_prediction.logger import logging
 from scipy.stats import ks_2samp
 from scipy.stats import chi2_contingency
 from typing import Optional
-import os,sys 
+import os
+import sys
 import pandas as pd
 from shipping_prediction import utils
 import numpy as np
@@ -26,21 +27,21 @@ class DataValidation:
         except Exception as e:
             raise ShippingException(e, sys)
 
+    
     def drop_unrelevant_columns(self,df:pd.DataFrame,column_list:list,report_key_name:str)->Optional[pd.DataFrame]:
         '''This function drops the unrelevant columns from the dataset both from train and test '''
         try:
             unrelevant_columns=self.data_validation_config.unrelevant_columns
             #droppping unrelevant columns which are not usefull for model bulding 
-            logging.info(f" Dropping unrelevant columns from train and test file")
             logging.info(f" Columns to drop :{unrelevant_columns}")
             df.drop(unrelevant_columns,axis=1,inplace=True)
             #return None no columns left
             if len(df.columns)==0:
                 return None
+            logging.info(f"After dropping columns from df shape of df{df.shape}")
             return df
         except Exception as e:
             raise ShippingException(e, sys)
-
 
 
 
@@ -48,7 +49,9 @@ class DataValidation:
         try:
            
             base_columns = base_df.columns
+            logging.info(f"base columns{base_columns}")
             current_columns = current_df.columns
+            logging.info(f"current_columns{current_columns}")
 
             missing_columns = []
             for base_column in base_columns:
@@ -65,31 +68,30 @@ class DataValidation:
         
         
         
-    def check_data_drift_categorical(self,base_df:pd.DataFrame, current_df:pd.DataFrame, feature):
+    def check_data_drift_categorical(self, base_data, current_data):
         """
         Checks data drift for a categorical feature using the chi-square test.
 
         Args:
-            data1 (list or array): First dataset containing the feature.
-            data2 (list or array): Second dataset containing the feature.
-            feature (str): Name of the categorical feature.
+            base_data (pd.Series): First dataset containing the feature.
+            current_data (pd.Series): Second dataset containing the feature.
 
         Returns:
             drift (bool): True if there is significant data drift, False otherwise.
             p_value (float): The p-value of the chi-square test.
         """
         # Create frequency tables for the feature in both datasets
-        table1 = np.unique(base_df, return_counts=True)
-        table2 = np.unique(current_df, return_counts=True)
+        table1 = base_data.value_counts()
+        table2 = current_data.value_counts()
 
         # Combine the two tables into a single table
-        all_values = set(table1[0]).union(set(table2[0]))
+        all_values = set(table1.index).union(set(table2.index))
         combined_table = {val: [0, 0] for val in all_values}
 
-        for val, count in zip(table1[0], table1[1]):
+        for val, count in table1.items():
             combined_table[val][0] = count
 
-        for val, count in zip(table2[0], table2[1]):
+        for val, count in table2.items():
             combined_table[val][1] = count
 
         # Convert the combined table into an array
@@ -103,117 +105,118 @@ class DataValidation:
 
         return drift, p_value
 
-    
-    def data_drift(self,base_df:pd.DataFrame,current_df:pd.DataFrame,report_key_name:str):
+    def data_drift(self, base_df: pd.DataFrame, current_df: pd.DataFrame, report_key_name: str):
         try:
-            drift_report=dict()
+            drift_report = {}
             categorical_cols_base_df = base_df.select_dtypes(include=['object']).columns
-            categorical_cols_current_df=current_df.select_dtypes(include=['object']).columns
-            base_columns_num= base_df.select_dtypes(include=['number']).columns
-            current_columns_num= current_df.select_dtypes(include=['number']).columns
+            categorical_cols_current_df = current_df.select_dtypes(include=['object']).columns
+            base_columns_num = base_df.select_dtypes(include=['number']).columns
+            current_columns_num = current_df.select_dtypes(include=['number']).columns
 
-            #Checking data drift for numerical Features
+            # Checking data drift for numerical Features
             for base_column in base_columns_num:
-                base_data,current_data = base_df[base_column],current_df[base_column]
-                #Null hypothesis is that both column data drawn from same distrubtion
-                
+                base_data, current_data = base_df[base_column], current_df[base_column]
+                # Null hypothesis is that both column data drawn from the same distribution
                 logging.info(f"Hypothesis {base_column}: {base_data.dtype}, {current_data.dtype} ")
-                same_distribution =ks_2samp(base_data,current_data)
+                same_distribution = ks_2samp(base_data, current_data)
 
-                if same_distribution.pvalue>0.05:
-                    #We are accepting null hypothesis
-                    drift_report[base_column]={
-                        "pvalues":float(same_distribution.pvalue),
+                if same_distribution.pvalue > 0.05:
+                    # We are accepting the null hypothesis
+                    drift_report[base_column] = {
+                        "p_values": float(same_distribution.pvalue),
                         "same_distribution": True
                     }
                 else:
-                    drift_report[base_column]={
-                        "pvalues":float(same_distribution.pvalue),
-                        "same_distribution":False
+                    drift_report[base_column] = {
+                        "p_values": float(same_distribution.pvalue),
+                        "same_distribution": False
                     }
-                    #different distribution
-                           
-            #Checking data drift for categorical features 
-            for col in categorical_cols_base_df:
-                base_data,current_data=base_df[col],current_df[col]
-                logging.info(f"Hypothesis {col}: {base_data.dtype}, {current_data.dtype} ")
-                drift, p_value = self.check_data_drift_categorical(categorical_cols_base_df,categorical_cols_current_df ,'features')  
-                if drift:
-                    drift_report[col]={
-                        "p_values":float(p_value),
-                        "same_distribution":False
-                    }               
-                else:
-                    drift_report[col]={
-                        "p_values":float(p_value),
-                        "same_distribution":True
-                    }            
 
-            self.validation_error[report_key_name]=drift_report
+            # Checking data drift for categorical features
+            for col in categorical_cols_base_df:
+                base_data, current_data = base_df[col], current_df[col]
+                logging.info(f"Hypothesis {col}: {base_data.dtype}, {current_data.dtype} ")
+                drift, p_value = self.check_data_drift_categorical(base_data, current_data)
+
+                if drift:
+                    drift_report[col] = {
+                        "p_values": float(p_value),
+                        "same_distribution": False
+                    }
+                else:
+                    drift_report[col] = {
+                        "p_values": float(p_value),
+                        "same_distribution": True
+                    }
+
+            self.validation_error[report_key_name] = drift_report
         except Exception as e:
-            raise ShippingException(e, sys)
+            raise ShippingException(e,sys)
     
-  
+    
+    
     def initiate_data_validation(self)->artifact_entity.DataValidationArtifact:
         try:
             unrelevant_columns=self.data_validation_config.unrelevant_columns
 
             logging.info(f"Reading base dataframe")
             base_df = pd.read_csv(self.data_validation_config.base_file_path)
-            #base_df has na as null
-           
+            logging.info(f"base_df shape-->{base_df.shape}")
 
             logging.info(f"Reading train dataframe")
             train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
+            logging.info(f"train_df shape-->{train_df.shape}")
+
             logging.info(f"Reading test dataframe")
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
+            logging.info(f"test_df shape-->{test_df.shape}")
             
-            logging.info(f"Dropping unrelevent columns from base df")
-            base_df = self.drop_unrelevant_columns(df=base_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_from_base_df")
-            logging.info(f"After dropping columns are present in base df {base_df.shape}")
-
-            logging.info(f" Dropping unrelevent columns from train_df")
-            train_df = self.drop_unrelevant_columns(df=train_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_frombase_df")
-            logging.info(f"After dropping columns are present in train df{train_df.shape}")
-
-            logging.info(f" Dropping unrelevent columns from test_df")
-            test_df = self.drop_unrelevant_columns(df=test_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_frombase_df")
-            logging.info(f"After dropping columns are present in test df{test_df.shape}")
+            base_df=self.drop_unrelevant_columns(df=base_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_from_base_df")
             
+    
+            train_df=self.drop_unrelevant_columns(df=train_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_from train_df")
 
+            test_df=self.drop_unrelevant_columns(df=test_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_from test_df")
+
+            # Add more logging messages here to understand what's happening
+            logging.info(f"Train dataframe shape after dropping columns: {train_df.shape}")
+            logging.info(f"Test dataframe shape after dropping columns: {test_df.shape}")
 
             logging.info(f"Is all required columns present in train df")
             train_df_columns_status = self.is_required_columns_exists(base_df=base_df, current_df=train_df,report_key_name="missing_columns_within_train_dataset")
-            logging.info(train_df_columns_status)
-
             logging.info(f"Is all required columns present in test df")
             test_df_columns_status = self.is_required_columns_exists(base_df=base_df, current_df=test_df,report_key_name="missing_columns_within_test_dataset")
-            logging.info(test_df_columns_status)
+
 
             if train_df_columns_status:
-                logging.info("All columns are available in train df. Detecting data drift...")
-                self.data_drift(base_df=base_df, current_df=train_df, report_key_name="data_drift_within_train_dataset")
+                logging.info(f"As all column are available in train df hence detecting data drift")
+            self.data_drift(base_df=base_df, current_df=train_df,report_key_name="data_drift_within_train_dataset")
             if test_df_columns_status:
-                logging.info("All columns are available in test df. Detecting data drift...")
-                self.data_drift(base_df=base_df, current_df=test_df, report_key_name="data_drift_within_test_dataset")
-            
+                logging.info(f"As all column are available in test df hence detecting data drift")
+            self.data_drift(base_df=base_df, current_df=test_df,report_key_name="data_drift_within_test_dataset")
 
+             # Create the directory if it doesn't exist
+            os.makedirs(self.data_validation_config.data_validation_dir, exist_ok=True)
+
+            logging.info(f"Saving validated train and test dataframe")
+            # Save the validated train and test dataframes to their respective paths
+            train_df.to_csv(path_or_buf=self.data_validation_config.validated_train_file_path, index=False, header=True)
+            test_df.to_csv(path_or_buf=self.data_validation_config.validated_test_file_path, index=False, header=True)
+
+           
             #write the report
             logging.info("Write reprt in yaml file")
             utils.write_yaml_file(file_path=self.data_validation_config.report_file_path,
                                 data=self.validation_error)
-
-            logging.info(f"After validation base df : {base_df.shape}")
-            logging.info(f"After validaion train df:  {train_df.shape}")
-            logging.info(f"After validation test df:  {test_df.shape}")
-
-
-
+           
+            # Create the DataValidationArtifact object with updated attributes
             data_validation_artifact = artifact_entity.DataValidationArtifact(
                 report_file_path=self.data_validation_config.report_file_path,
+                validated_train_file_path=self.data_validation_config.validated_train_file_path,
+                validated_test_file_path=self.data_validation_config.validated_test_file_path
             )
             logging.info(f"Data validation artifact: {data_validation_artifact}")
             return data_validation_artifact
         except Exception as e:
+            logging.error(f"An error occurred during data validation: {str(e)}")
             raise ShippingException(e,sys)
-            logging.ERROR(e)

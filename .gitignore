@@ -43,6 +43,7 @@ htmlcov/
 .coverage
 .coverage.*
 .cache
+.logs
 nosetests.xml
 coverage.xml
 *.cover
@@ -50,6 +51,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+artifact/
 
 # Translations
 *.mo

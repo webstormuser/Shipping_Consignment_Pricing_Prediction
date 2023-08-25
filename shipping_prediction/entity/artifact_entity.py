@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Optional
 
 @dataclass
 class DataIngestionArtifact:
@@ -9,6 +10,8 @@ class DataIngestionArtifact:
 @dataclass
 class DataValidationArtifact:
     report_file_path:str
+    validated_train_file_path: str # Add this attribute
+    validated_test_file_path: str # Add this attribute
 
 @dataclass
 class DataTransformationArtifact:

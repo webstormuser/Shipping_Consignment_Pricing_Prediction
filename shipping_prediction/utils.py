@@ -39,20 +39,6 @@ def get_collection_as_dataframe(database_name: str, collection_name: str) -> pd.
     except Exception as e:
         raise ShippingException(e, sys)
 
-'''
-def typo_check(valid_function_names):
-    try:
-        def decorator(func):
-            def wrapper(*args, **kwargs):
-                function_name = func.__name__
-                if function_name not in valid_function_names:
-                    print(f"Warning: Possible typo in function name '{function_name}'")
-                return func(*args, **kwargs)
-            return wrapper
-        return decorator
-    except Exception as e:
-        raise ShippingException(e,sys)
-'''
 
 
 def write_yaml_file(file_path,data:dict):
@@ -66,15 +52,30 @@ def write_yaml_file(file_path,data:dict):
 
 def save_numpy_array_data(file_path: str, array: np.array):
     """
-    Save numpy array in file in .npz format
-    file_path is the location of file where to store numpy array
+    Save numpy array data to file
+    file_path: str location of file to save
+    array: np.array data to save
     """
     try:
         dir_path = os.path.dirname(file_path)
         os.makedirs(dir_path, exist_ok=True)
-        np.save(file_path, array=array)
+        with open(file_path, "wb") as file_obj:
+            np.save(file_obj, array)
     except Exception as e:
         raise ShippingException(e, sys) from e
+
+def load_numpy_array_data(file_path: str) -> np.array:
+    """
+    load numpy array data from file
+    file_path: str location of file to load
+    return: np.array data loaded
+    """
+    try:
+        with open(file_path, "rb") as file_obj:
+            return np.load(file_obj)
+    except Exception as e:
+        raise ShippingException(e, sys) from e
+
 
 def save_object(file_path: str, obj: object) -> None:
     try:
@@ -87,24 +88,12 @@ def save_object(file_path: str, obj: object) -> None:
         raise ShippingException(e, sys) from e
 
 
-def load_num_array(file_path: str) -> np.array:
-    """
-    Load numpy array data from file
-    file_path: str location of file to load
-    return: np.array data loaded
-    """
-    try:
-        return np.load(file_path)
-    except Exception as e:
-        raise ShippingException(e, sys) from e
-
-
-def load_object(file_path:str)->object:
+def load_object(file_path: str, ) -> object:
     try:
         if not os.path.exists(file_path):
             raise Exception(f"The file: {file_path} is not exists")
         with open(file_path, "rb") as file_obj:
-            return pickle.load(file_obj)
+            return joblib.load(file_obj)
     except Exception as e:
         raise ShippingException(e, sys) from e
 
