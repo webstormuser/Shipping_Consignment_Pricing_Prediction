@@ -62,8 +62,7 @@ class DataTransformation:
 
             # Create a pipeline that includes preprocessing and XGBoost model
             final_pipeline = Pipeline(steps=[
-                        ('preprocessor', preprocessor),
-                        ('model',TransformedTargetRegressor(regressor=xgb_model, transformer=target_scaler))
+                        ('preprocessor', preprocessor)
                     ])
             return final_pipeline
         except Exception as e:
@@ -106,43 +105,55 @@ class DataTransformation:
             logging.info(f"shape of target feature in train and test{target_feature_train_df.shape,target_feature_test_df.shape}")
             
             logging.info(f"Applying robustscale on target feature")
-            logging.info(f"Applying robust scale on target feature")
             # Applying robust scaler on target feature
-
             target_scaler = RobustScaler()
-            target_scaler.fit(target_feature_train_df.values.reshape(-1, 1))
-            y_train_transformed = target_scaler.transform(target_feature_train_df.values.reshape(-1, 1))
-            y_test_transformed = target_scaler.transform(target_feature_test_df.values.reshape(-1, 1))
-            
+
+            # Reshape the target variables to fit the scaler's input format
+            y_train_reshaped = target_feature_train_df.values.reshape(-1, 1)
+            y_test_reshaped = target_feature_test_df.values.reshape(-1, 1)
+        
+            logging.info(f"Shape of y_train_reshaped-->{y_train_reshaped.shape}")
+            logging.info(f"Shape of y_test_reshapd-->{y_test_reshaped.shape}")
+            # Fit and transform the target variables
+            y_train_transformed = target_scaler.fit_transform(y_train_reshaped)
+            y_test_transformed = target_scaler.transform(y_test_reshaped)
+
+            # Flatten the transformed target variables
+            y_train_transformed = y_train_transformed.flatten()
+            y_test_transformed = y_test_transformed.flatten()
+
             logging.info(f"Shape of y_train_transformed ==> {y_train_transformed.shape}")
             logging.info(f"Shape of y_test_transformed --> {y_test_transformed.shape}")
 
-
             # getting transformer object
+            logging.info(f"Getting transformation object from pipeline")
             transformation_pipeline = DataTransformation.get_data_transformer_object()
-
-            
             transformation_pipeline.fit(input_feature_train_df)
 
             #transforming input features
-            input_feature_train_arr = transformation_pipleine.transform(input_feature_train_df)
-            input_feature_test_arr = transformation_pipleine.transform(input_feature_test_df)
+            logging.info(f"Transforming input features from train and test df")
+            input_feature_train_arr = transformation_pipeline.transform(input_feature_train_df)
+            input_feature_test_arr = transformation_pipeline.transform(input_feature_test_df)
 
+            logging.info(f"input feature train df and test df shape {input_feature_train_df.shape,input_feature_test_df.shape}")
             
             # Combining input features and transformed target features
+            logging.info(f"combining input feature and transformed target features")
             train_arr = np.hstack((input_feature_train_arr, y_train_transformed))
             test_arr = np.hstack((input_feature_test_arr, y_test_transformed))
             
            #save numpy array
+            logging.info(f"Saving transformed train array data")
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_train_path,
                                         array=train_arr)
 
+            logging.info(f"Saving transformed test array data")
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_test_path,
                                         array=test_arr)
 
-
+            logging.info(f"Saving transformer object ")
             utils.save_object(file_path=self.data_transformation_config.transform_object_path,
-             obj=transformation_pipleine)
+            obj=transformation_pipeline)
 
             data_transformation_artifact=artifact_entity.DataTransformationArtifact(
                 transform_object_path=self.data_transformation_config.transform_object_path,
