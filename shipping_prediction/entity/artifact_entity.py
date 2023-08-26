@@ -18,3 +18,11 @@ class DataTransformationArtifact:
     transform_object_path:str
     transformed_train_path:str
     transformed_test_path:str
+
+@dataclass    
+class ModelTrainerArtifact:
+    model_path:str 
+    r2_score:float
+    rmse_score:float
+    adjusted_r2_score:float
+    
