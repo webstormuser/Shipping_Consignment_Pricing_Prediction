@@ -18,6 +18,7 @@ class DataTransformationArtifact:
     transform_object_path:str
     transformed_train_path:str
     transformed_test_path:str
+    target_scaler_path:str
 
 @dataclass    
 class ModelTrainerArtifact:
