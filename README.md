@@ -16,3 +16,11 @@ dataset.
 The classical machine learning tasks like Data Exploration, Data Cleaning,
 Feature Engineering, Model Building and Model Testing. Try out different machine
 learning algorithms that’s best fit for the above case.
+For this approach I have used XGBRegressor as it is best suited .
+
+# Steps 
+
+* create new environment 
+    conda create -p venv python==3.9 
+
+* run reuquirements.txt file (pip install -r requirements.txt)
