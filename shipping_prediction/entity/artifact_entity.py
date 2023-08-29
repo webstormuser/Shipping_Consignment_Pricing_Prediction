@@ -23,7 +23,10 @@ class DataTransformationArtifact:
 @dataclass    
 class ModelTrainerArtifact:
     model_path:str 
-    r2_score:float
-    rmse_score:float
-    adjusted_r2_score:float
+    r2_score_train:float
+    r2_score_test:float
+    adjusted_r2_score_train:float
+    adjusted_r2_score_test:float
+    mse_train:float
+    mse_test:float
     

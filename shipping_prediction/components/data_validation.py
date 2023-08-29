@@ -167,10 +167,20 @@ class DataValidation:
             train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
             logging.info(f"train_df shape-->{train_df.shape}")
 
-            logging.info(f"Reading test dataframe")
+            logging.info(f"Reading test data frame")
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
             logging.info(f"test_df shape-->{test_df.shape}")
             
+            logging.info(f"Any duplicate records inside base_df ,train_df,test_df{base_df.duplicated().sum(),train_df.duplicated().sum(),test_df.duplicated().sum()}")
+            
+            
+            logging.info(f"Dropping duplicate from base_df ,train_df,test_df")
+            base_df.drop_duplicates(inplace=True)
+            train_df.drop_duplicates(inplace=True)
+            test_df.drop_duplicates(inplace=True)
+            
+            logging.info(f"After dropping duplicate ")
+            logging.info(f"Duplicate count in base_df,train_df,test_df-->{base_df.duplicated().sum(),train_df.duplicated().sum(),test_df.duplicated().sum()}")            
             base_df=self.drop_unrelevant_columns(df=base_df,column_list=unrelevant_columns,report_key_name="dropping_unrelevent_columns_from_base_df")
             
     

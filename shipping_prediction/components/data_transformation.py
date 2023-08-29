@@ -28,6 +28,17 @@ class DataTransformation:
             self.data_validation_artifact = data_validation_artifact
         except Exception as e:
             raise ShippingException(e, sys)
+    
+    @classmethod
+    def get_target_transformer_object(cls) -> Pipeline:
+        try:
+            TargetScaler = Pipeline(steps=[
+                ('scaler', RobustScaler())
+            ])
+            return TargetScaler
+        except Exception as e:
+            logging.error(f"An error occurred during target transformation: {str(e)}")
+            raise ShippingException(e, sys)
 
     @classmethod
     def get_data_transformer_object(cls) -> Pipeline:
@@ -70,24 +81,20 @@ class DataTransformation:
         try:
            
             logging.info(f"loading validated train and test file path")
-
             validated_train_file_path =self.data_validation_artifact.validated_train_file_path
             validated_test_file_path = self.data_validation_artifact.validated_test_file_path
 
             logging.info(f"Loading train and test df from validation")
-
             valid_train_df = pd.read_csv(validated_train_file_path)
-
             valid_test_df = pd.read_csv(validated_test_file_path)
 
             logging.info(f" Shape of Train df-->{valid_train_df.shape}")
             logging.info(f"Shape of test df -->{valid_test_df.shape}")
 
             logging.info(f"train df columns-->{valid_train_df.columns.to_list()}")
-
             logging.info(f"test df columns--->{valid_test_df.columns.to_list()}")
             
-            #selecting input feature for train and test dataframe
+            #selecting input feature for train and test data frame
             input_feature_train_df = valid_train_df.drop(TARGET_COLUMN,axis=1)
             input_feature_test_df = valid_test_df.drop(TARGET_COLUMN,axis=1)
 
@@ -95,7 +102,7 @@ class DataTransformation:
             logging.info(f"input_feature_train_df_columns{input_feature_train_df.columns.to_list()}")
             logging.info(f"input_feature_test_df_columns{input_feature_test_df.columns.to_list()}")
            
-            #selecting target feature for train and test dataframe
+            #selecting target feature for train and test data frame
             target_feature_train_df = valid_train_df[TARGET_COLUMN]
             target_feature_test_df = valid_test_df[TARGET_COLUMN]
 
@@ -103,25 +110,25 @@ class DataTransformation:
             logging.info(f"target_feature_train_df{target_feature_train_df}")
             logging.info(f"target_feature_test_df{target_feature_test_df}")
             logging.info(f"Before applying scaler shape of target feature{target_feature_train_df.shape,target_feature_test_df.shape}")
-            
-            # Create RobustScaler object
-            TargetScaler = RobustScaler()
+        
             # Reshape target features
             target_feature_train_arr = target_feature_train_df.values.reshape(-1, 1)
             target_feature_test_arr = target_feature_test_df.values.reshape(-1, 1)
-            logging.info(f"After reshaping scaler on target shape is {target_feature_train_arr.shape,target_feature_test_arr.shape}")
-            # Fit scaler on the train target
+            logging.info(f"After  reshaping and before applying scaler {target_feature_train_arr.shape,target_feature_test_arr.shape}")
+          
+            TargetScaler =  DataTransformation.get_target_transformer_object()
             TargetScaler.fit(target_feature_train_arr)
             # Transform target features
             target_feature_train_scaled = TargetScaler.transform(target_feature_train_arr)
             target_feature_test_scaled = TargetScaler.transform(target_feature_test_arr)
             logging.info(f"after applying scaler shape of target is {target_feature_train_scaled.shape,target_feature_test_scaled.shape}")
             
-            # Flatten scaled target features
-            logging.info(f"after scaling flatten the target feature")
-            target_feature_train_scaled_flat = target_feature_train_scaled.flatten()
-            target_feature_test_scaled_flat = target_feature_test_scaled.flatten()
-            logging.info(f"after flatten operation shape of target feature is {target_feature_train_scaled_flat.shape,target_feature_test_scaled_flat.shape}")
+            logging.info(f"After applying scaler and reshaping back to original ")       
+            # Reshape the target features to match the number of rows in input features
+            target_feature_train_scaled_reshaped = target_feature_train_scaled.reshape(-1,1)
+            target_feature_test_scaled_reshaped = target_feature_test_scaled.reshape(-1,1)
+            
+            logging.info(f"shape of target scaler reshaped {target_feature_train_scaled_reshaped.shape,target_feature_test_scaled_reshaped.shape}")
             
             # Getting transformation object
             logging.info("Getting transformation object from pipeline")
@@ -138,13 +145,30 @@ class DataTransformation:
 
             logging.info(f"shape of input feature train and test arr{input_feature_train_arr.shape,input_feature_test_arr.shape}")
             
-            
-            logging.info(f"Concatenating input feature with target feature in train and test ")
-            # Concatenate the input feature arrays and scaled target arrays
-            train_arr = np.hstack((input_feature_train_arr,target_feature_train_scaled_flat))
-            test_arr = np.hstack((input_feature_test_arr,target_feature_test_scaled_flat))
-            print(train_arr.shape)
-            print(test_arr.shape)
+           # Printing shapes of arrays for debugging
+            print("Shapes before concatenation:")
+            print("input_feature_train_arr:", input_feature_train_arr.shape)
+            print("target_feature_train_scaled:", target_feature_train_scaled_reshaped.shape)
+            print("input_feature_test_arr:", input_feature_test_arr.shape)
+            print("target_feature_test_scaled:", target_feature_test_scaled_reshaped.shape)
+
+            # Verify that shapes are compatible for concatenation
+            if input_feature_train_arr.shape[0] != target_feature_train_scaled_reshaped.shape[0]:
+                raise ValueError("Number of rows in input feature and target feature do not match for training data.")
+
+            if input_feature_test_arr.shape[0] != target_feature_test_scaled_reshaped.shape[0]:
+                raise ValueError("Number of rows in input feature and target feature do not match for test data.")
+
+            # Concatenating input features with target features
+            logging.info("Concatenating input feature with target feature in train and test")
+            train_arr = np.concatenate((input_feature_train_arr, target_feature_train_scaled_reshaped), axis=1)
+            test_arr = np.concatenate((input_feature_test_arr, target_feature_test_scaled_reshaped), axis=1)
+
+            # Printing shapes of concatenated arrays
+            print("Shapes after concatenation:")
+            print("train_arr:", train_arr.shape)
+            print("test_arr:", test_arr.shape)
+
             logging.info(f"shape of combined input and target feature in train and test{train_arr.shape,test_arr.shape}")
             
            #save numpy array
