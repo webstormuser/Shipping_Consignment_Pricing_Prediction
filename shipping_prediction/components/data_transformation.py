@@ -147,18 +147,20 @@ class DataTransformation:
             
            # Printing shapes of arrays for debugging
             print("Shapes before concatenation:")
-            print("input_feature_train_arr:", input_feature_train_arr.shape)
-            print("target_feature_train_scaled:", target_feature_train_scaled_reshaped.shape)
-            print("input_feature_test_arr:", input_feature_test_arr.shape)
-            print("target_feature_test_scaled:", target_feature_test_scaled_reshaped.shape)
-
-            # Verify that shapes are compatible for concatenation
-            if input_feature_train_arr.shape[0] != target_feature_train_scaled_reshaped.shape[0]:
-                raise ValueError("Number of rows in input feature and target feature do not match for training data.")
-
-            if input_feature_test_arr.shape[0] != target_feature_test_scaled_reshaped.shape[0]:
-                raise ValueError("Number of rows in input feature and target feature do not match for test data.")
-
+            print("input_feature_train_arr-->",input_feature_train_arr.shape)
+            print("input_feature_test_arr-->",input_feature_test_arr.shape)
+            print("input_feature_train_arr_datatype-->",input_feature_train_arr.dtype)
+            print("input_feature_train_arr_datatype-->",input_feature_test_arr.dtype)
+            print("target_feature_train_scaled_reshaped_shape",target_feature_train_scaled_reshaped.shape)
+            print("target_feature_test_scaled_reshaped",target_feature_test_scaled_reshaped.shape)
+            print("type of input_feature_train_arr-->",type(input_feature_train_arr))
+            print("type of input_feature_test_arr-->",type(input_feature_test_arr))
+            print("type of target_feature_train_scaled_reshaped",type(target_feature_train_scaled_reshaped))
+            print("type of target_feature_test_scaled_reshaped",type(target_feature_test_scaled_reshaped))
+            # Convert sparse matrices to dense numpy arrays
+            input_feature_train_arr = input_feature_train_arr.toarray()
+            input_feature_test_arr = input_feature_test_arr.toarray()
+            print("after to array type of iput feature train test--->",type(input_feature_train_arr),type(input_feature_test_arr))
             # Concatenating input features with target features
             logging.info("Concatenating input feature with target feature in train and test")
             train_arr = np.concatenate((input_feature_train_arr, target_feature_train_scaled_reshaped), axis=1)
