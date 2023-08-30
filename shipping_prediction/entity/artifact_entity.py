@@ -13,6 +13,7 @@ class DataValidationArtifact:
     validated_train_file_path: str # Add this attribute
     validated_test_file_path: str # Add this attribute
 
+
 @dataclass
 class DataTransformationArtifact:
     transform_object_path:str
@@ -30,3 +31,13 @@ class ModelTrainerArtifact:
     mse_train:float
     mse_test:float
     
+@dataclass 
+class ModelEvaluationArtifact:
+    is_model_accepted:bool
+    is_accuracy_improved:bool
+
+    
+@dataclass
+class ModelPusherArtifact:
+    pusher_model_dir:str 
+    saved_model_dir:str
