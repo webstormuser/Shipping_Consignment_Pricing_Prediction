@@ -44,8 +44,8 @@ class DataTransformation:
     def get_data_transformer_object(cls) -> Pipeline:
         try:
             # Define categorical and numerical features (replace with your actual feature lists)
-            cat_features =['PO_/_SO_#','ASN/DN_#','Country','Fulfill_Via','Vendor_INCO_Term','Shipment_Mode','Sub_Classification','First_Line_Designation'] # List of categorical feature column names
-            num_features = ['Unit_of_Measure_(Per_Pack)','Line_Item_Quantity','Pack_Price','Unit_Price','Weight_(Kilograms)','Freight_Cost_(USD)','Line_Item_Insurance_(USD)','Days_to_Process'] # List of numerical feature column names
+            cat_features =['PO_SO','ASN_DN','Country','Fulfill_Via','Vendor_INCO_Term','Shipment_Mode','Sub_Classification','First_Line_Designation'] # List of categorical feature column names
+            num_features = ['Unit_of_Measure_Per_Pack','Line_Item_Quantity','Pack_Price','Unit_Price','Weight_Kilograms','Freight_Cost_USD','Line_Item_Insurance_USD','Days_to_Process'] # List of numerical feature column names
             print(cat_features)
             print(num_features)
             print(TARGET_COLUMN)
