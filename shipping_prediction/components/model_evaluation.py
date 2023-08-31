@@ -57,38 +57,42 @@ class ModelEvaluation:
             current_target_scaler = load_object(file_path=self.data_transformation_artifact.target_scaler_path)
 
             # Loading test df from validation
-            logging.info(f"loading test df for prediction")
+            logging.info("Loading test df for prediction")
             test_df = pd.read_csv(self.data_validation_artifact.validated_test_file_path)
+            logging.info(f"test df shape{test_df.shape} ")
             target_df = test_df[TARGET_COLUMN]
-            y_true =TargetScaler.transform(target_df)
+            logging.info(f"target_df shape--{target_df.shape}")
+            # Transforming the target feature
+            y_true = current_target_scaler.transform(target_df.values.reshape(-1, 1))
 
             # Calculating R-squared score using the previous trained model
-            logging.info("loading input feature names")
+            logging.info("Loading input feature names")
             input_feature_name = list(transformer.feature_names_in_)
-            logging.info({input_feature_name})
-            logging.info(f"loading transformer to transform input features")
+            logging.info(f"Input feature names: {input_feature_name}")
+            logging.info("Loading transformer to transform input features")
             input_arr = transformer.transform(test_df[input_feature_name])
-            logging.info(f"Prediction and calculating r2 score for previous trained model")
+            logging.info("Predicting and calculating r2 score for previous trained model")
             y_pred = model.predict(input_arr)
             previous_model_r2 = r2_score(y_true=y_true, y_pred=y_pred)
-            logging.info(f"R-squared score using previous trained model: {previous_model_r2}")
+            logging.info(f"R2  score using the previous trained model: {previous_model_r2}")
 
             # Calculating R-squared score using the current trained model
             input_feature_name = list(current_transformer.feature_names_in_)
-            logging.info(f"input feature name from current trained model{input_feature_name}")
+            logging.info(f"Input feature names from current trained model: {input_feature_name}")
             input_arr = current_transformer.transform(test_df[input_feature_name])
-            logging.info(f"Prediction and calculating r2 score for currently trained model")
+            logging.info("Predicting and calculating r2 score for currently trained model")
             y_pred = current_model.predict(input_arr)
-            y_true = current_target_scaler.transform(target_df)
-            print(f"Prediction using trained model: {current_target_scaler.inverse_transform(y_pred[:5])}")
+            y_true = current_target_scaler.transform(target_df.values.reshape(-1, 1)).flatten()  # Flatten y_true
+            y_pred =  y_pred.reshape(-1, 1)  # Reshape y_pred to a 2D array
             current_model_r2 = r2_score(y_true=y_true, y_pred=y_pred)
-            logging.info(f"R-squared score using current trained model: {current_model_r2}")
-
+            logging.info(f"R2 score using the current trained model: {current_model_r2}")
+            #print(f"Prediction using the trained model: {current_target_scaler.inverse_transform(y_pred[:5])}")
+            print("Prediction using the trained model:", ' '.join(map(str, [int(round(value[0])) for value in current_target_scaler.inverse_transform(y_pred[:5])])))
             # Calculating Mean Squared Error (MSE)
             previous_model_mse = mean_squared_error(y_true=y_true, y_pred=y_pred)
-            logging.info(f"Previous trained model MSE{previous_model_mse}")
+            logging.info(f"Previous trained model MSE: {previous_model_mse}")
             current_model_mse = mean_squared_error(y_true=y_true, y_pred=y_pred)
-            logging.info(f"Currently trained model MSE {current_model_mse}")
+            logging.info(f"Currently trained model MSE: {current_model_mse}")
 
             # Calculating Adjusted R-squared score
             num_features = input_arr.shape[1]
@@ -99,7 +103,7 @@ class ModelEvaluation:
             logging.info(f"Currently trained model adjusted r2_score is {current_model_adj_r2}")
 
             # Comparing model performances
-            if  current_model_adj_r2 <= previous_model_adj_r2:
+            if current_model_adj_r2 <= previous_model_adj_r2:
                 logging.info("Current trained model is not better than the previous model")
                 raise Exception("Current trained model is not better than the previous model")
 
@@ -118,5 +122,5 @@ class ModelEvaluation:
             return model_eval_artifact
 
         except Exception as e:
-            logging.error(f"Error occurred: {str(e)}")
-            raise ShippingException(e, sys)
+                logging.error(f"Error occurred: {str(e)}")
+                raise ShippingException(e, sys)

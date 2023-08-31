@@ -10,6 +10,7 @@ shipping_prediction/__init__.py
 shipping_prediction/config.py
 shipping_prediction/exception.py
 shipping_prediction/logger.py
+shipping_prediction/predictor.py
 shipping_prediction/utils.py
 shipping_prediction/components/__init__.py
 shipping_prediction/components/data_ingestion.py
@@ -23,5 +24,4 @@ shipping_prediction/entity/__init__.py
 shipping_prediction/entity/artifact_entity.py
 shipping_prediction/entity/config_entity.py
 shipping_prediction/pipeline/__init__.py
-shipping_prediction/pipeline/predictor.py
 shipping_prediction/pipeline/training_pipeline.py

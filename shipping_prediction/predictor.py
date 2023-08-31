@@ -27,7 +27,7 @@ class ModelResolver:
                 return None
             dir_names = list(map(int,dir_names))
             latest_dir_name = max(dir_names)
-            logging.info(f"latest dir names:{latest_dir_names}")
+            logging.info(f"latest dir names:{latest_dir_name}")
             return os.path.join(self.model_registry,f"{latest_dir_name}")
         except Exception as e:
             logging.info(f" Error occurred :{str(e)}")
