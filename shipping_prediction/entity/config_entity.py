@@ -9,7 +9,6 @@ FILE_NAME = "clean_SCMS_Delivery_History_Dataset.csv"
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
 TRANSFORMER_OBJECT_FILE_NAME = "transformer.pkl"
-TARGET_SCALER_OBJECT_FILE_NAME = "TargetScaler.pkl"
 MODEL_FILE_NAME = "model.pkl"
 
 
@@ -47,7 +46,7 @@ class DataValidationConfig:
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         self.data_validation_dir = os.path.join(training_pipeline_config.artifact_dir , "data_validation")
         self.report_file_path=os.path.join(self.data_validation_dir, "report.yaml")
-        self.unrelevant_columns:list = ['ID','Project_Code','PQ','Managed_By','PO_Sent_to_Vendor_Date','Product_Group','Scheduled_Delivery_Date','Delivered_to_Client_Date','Delivery_Recorded_Date','Vendor','Item_Description','Molecule/Test_Type','Brand','Dosage','Dosage_Form','Manufacturing_Site','PQ_First_Sent_to_Client_Date']
+        self.unrelevant_columns:list = ['ID','Project_Code','PQ','Managed_By','PO_Sent_to_Vendor_Date','Product_Group','Scheduled_Delivery_Date','Delivered_to_Client_Date','Delivery_Recorded_Date','Vendor','Item_Description','Molecule/Test_Type','Brand','Dosage','Dosage_Form','Manufacturing_Site','PQ_First_Sent_to_Client_Date','Country','Fulfill_Via','Vendor_INCO_Term', 'Unit_of_Measure_Per_Pack','Shipment_Mode','First_Line_Designation','Line_Item_Insurance_USD','Days_to_Process']
         self.base_file_path = os.path.join("clean_SCMS_Delivery_History_Dataset.csv")
         self.validated_train_file_path = os.path.join(self.data_validation_dir, "validated_train.csv")
         self.validated_test_file_path = os.path.join(self.data_validation_dir, "validated_test.csv")
@@ -59,7 +58,7 @@ class DataTransformationConfig:
         self.transform_object_path = os.path.join(self.data_transformation_dir,"transformer",TRANSFORMER_OBJECT_FILE_NAME)
         self.transformed_train_path =  os.path.join(self.data_transformation_dir,"transformed",TRAIN_FILE_NAME.replace("csv","npz"))
         self.transformed_test_path =os.path.join(self.data_transformation_dir,"transformed",TEST_FILE_NAME.replace("csv","npz"))
-        self.target_scaler_path = os.path.join(self.data_transformation_dir,"TargetScaler",TARGET_SCALER_OBJECT_FILE_NAME)
+
 class ModelTrainerConfig:
     
     def __init__(self,training_pipeline_config: TrainingPipelineConfig):
@@ -81,7 +80,6 @@ class ModelPusherConfig:
         self.pusher_model_dir = os.path.join(self.model_pusher_dir,"saved_models")
         self.pusher_model_path = os.path.join(self.pusher_model_dir,MODEL_FILE_NAME)
         self.pusher_transformer_path = os.path.join(self.pusher_model_dir,TRANSFORMER_OBJECT_FILE_NAME)
-        self.pusher_target_scaler_path = os.path.join(self.pusher_model_dir,TARGET_SCALER_OBJECT_FILE_NAME)
         
 
 
