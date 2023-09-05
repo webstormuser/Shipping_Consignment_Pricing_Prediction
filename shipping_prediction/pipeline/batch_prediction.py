@@ -42,18 +42,16 @@ def start_batch_prediction(input_file_path):
         logging.info(f"Shape of input_arr_reshaped before prediction: {input_arr_reshaped.shape}")
 
         # Make predictions
-        prediction = model.predict(input_arr_reshaped.reshape(-1, num_features))
+        prediction = model.predict(input_arr_reshaped)
 
         # Debug print to check the shape of prediction before inverse transformation
         logging.info(f"Shape of prediction before inverse transformation: {prediction.shape}")
 
-       
+        # Inverse transform the predictions to get them back to the original scale
+        inverse_prediction = np.exp(prediction)  # Assuming you want to undo np.log scaling
 
-        # Debug print to check the shape of original_prediction
-        logging.info(f"Shape of original_prediction: {original_prediction.shape}")
-
-        # Add the predictions to the DataFrame
-        df['prediction'] = original_prediction
+        # Add the inverse transformed predictions to the DataFrame
+        df['prediction'] = inverse_prediction
 
         prediction_file_name = os.path.basename(input_file_path).replace(".csv", f"{datetime.now().strftime('%m%d%Y__%H%M%S')}.csv")
         prediction_file_path = os.path.join(PREDICTION_DIR, prediction_file_name)
