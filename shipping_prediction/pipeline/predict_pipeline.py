@@ -5,6 +5,7 @@ import pandas as pd
 from shipping_prediction.utils import load_object
 import os,sys
 from datetime import datetime
+import numpy as np 
 
 class PredictPipeline:
     '''
@@ -18,11 +19,12 @@ class PredictPipeline:
             model_path = 'saved_models/0/model/model.pkl'
             transformer = load_object(file_path = transformer_path)
             model = load_object(file_path = model_path)
+            data_scaled = transformer.transform(features)
             prediction = model.predict(data_scaled)
             original_prediction =np.exp(prediction)-1
             return original_prediction          
         except Exception as e :
-            raise ThyroidException(e,sys)
+            raise ShippingException(e)
         
         
 class CustomData:
@@ -43,7 +45,7 @@ class CustomData:
                     self.Pack_Price=Pack_Price
                     self.Unit_Price=Unit_Price
                     self.Weight_Kilograms=Weight_Kilograms
-                    self.Freight_Cost_USD                
+                    self.Freight_Cost_USD=Freight_Cost_USD           
                       
     def get_data_as_data_frame(self):
         try:
@@ -54,10 +56,10 @@ class CustomData:
                 "Line_Item_Quantity":[self.Line_Item_Quantity],
                 "Pack_Price":[self.Pack_Price],
                 "Unit_Price":[self.Unit_Price],
-                "Weight_Kilograms":[self.Weight_kilograms],
+                "Weight_Kilograms":[self.Weight_Kilograms],
                 "Freight_Cost_USD":[self.Freight_Cost_USD]                
             }
             return pd.DataFrame(custom_data_as_input_dict)
 
         except Exception as e:
-                raise ShippingException(e,sys)
+                raise ShippingException(e)

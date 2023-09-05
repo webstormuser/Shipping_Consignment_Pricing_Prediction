@@ -6,16 +6,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-image: url('homepage_image.jpg'); /* Replace with your image URL */
+            background-image: url('https://github.com/webstormuser/Shipping_Consignment_Pricing_Prediction/raw/master/homepage_image.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            color: #333; /* Set text color to dark */
         }
         .problem-statement {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.3); /* Adjust opacity to make it transparent */
             padding: 20px;
             border-radius: 10px;
-            margin-top: 20px;
+            margin-top: 120px; /* Adjust margin to move the block down */
+        }
+        .nav-link {
+            color: #333; /* Set tab text color to dark */
         }
     </style>
 </head>
@@ -53,8 +57,14 @@
         <p>
             The classical machine learning tasks like Data Exploration, Data Cleaning,
             Feature Engineering, Model Building, and Model Testing. Try out different machine
-            learning algorithms that are best fit for the above case.
+            learning algorithms that are best fit for the above case. I have built the model using XGBRegressor model
         </p>
+
+        <!-- Display the prediction if available -->
+        {% if prediction %}
+        <h2>Prediction Result:</h2>
+        <p>{{ prediction }}</p>
+        {% endif %}
     </div>
 </div>
 

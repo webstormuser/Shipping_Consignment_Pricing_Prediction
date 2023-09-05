@@ -2,17 +2,36 @@
 <html>
 <head>
   <head>
-    <title>Bootstrap Online Editor</title>
+    <title>Input Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Add background image */
+        body {
+            background-image: url('https://github.com/webstormuser/Shipping_Consignment_Pricing_Prediction/raw/master/homepage_image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Adjust form width */
+        .container {
+            width: 70%; /* Adjust the width as needed */
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
   </head>
   <body>
 <body>
     <div class="container mt-5">
         <h1>Shipping Pricing Predictor</h1>
-        <form action="process_form.php" method="post">
+        <form action="/predict_data" method="post">
             <!-- Categorical Features -->
             <div class="form-group">
                 <label for="PO_SO">PO_SO:</label>
@@ -72,7 +91,7 @@
                 <input type="number" class="form-control" step="0.01" id="Freight_Cost_USD" name="Freight_Cost_USD" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Predict !!!</button>
         </form>
     </div>
 
