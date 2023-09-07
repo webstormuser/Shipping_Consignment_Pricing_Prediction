@@ -1,0 +1,113 @@
+[2023-09-05 22:31:17,249] 187 werkzeug - WARNING -  * Debugger is active!
+[2023-09-05 22:31:17,295] 187 werkzeug - INFO -  * Debugger PIN: 104-117-335
+[2023-09-05 22:32:02,762] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:32:02] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:32:03,460] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:32:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2023-09-05 22:32:15,299] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:32:15] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:32:17,612] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:32:17] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:32:18,718] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:32:18] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:32:31,272] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:32:31] "GET /prediction.html HTTP/1.1" 200 -
+[2023-09-05 22:32:35,164] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:32:35] "GET /prediction/input HTTP/1.1" 200 -
+[2023-09-05 22:32:54,135] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:32:54] "GET /prediction/batch HTTP/1.1" 200 -
+[2023-09-05 22:33:11,828] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:11,841] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:11] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:20,183] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:20,184] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:20] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:22,773] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:22,774] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:22] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:23,152] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:23,154] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:23] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:23,188] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:23,190] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:23] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:23,539] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:23,541] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:23] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:23,564] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:23,565] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:23] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:23,923] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:23,925] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:23] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:23,928] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:23,929] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:23] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:24,338] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:24,339] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:24] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:24,379] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:24,380] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:24] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:25,404] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:25,406] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:25] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:25,433] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:25,434] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:25] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:25,827] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:33:25,828] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:25] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:33:32,742] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:32] "GET /prediction/batch HTTP/1.1" 200 -
+[2023-09-05 22:33:59,643] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:33:59] "GET /prediction/batch HTTP/1.1" 200 -
+[2023-09-05 22:34:04,579] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:04] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:05,936] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:05] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:06,371] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:06] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:06,785] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:06] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:07,104] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:07] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:07,500] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:07] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:07,593] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:07] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:07,625] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:07] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:07,953] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:07] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:08,109] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:08] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:08,124] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:08] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:08,483] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:08] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:09,379] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:09] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:09,753] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:09] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:10,387] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:10] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:10,808] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:10] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:11,077] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:11] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:11,300] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:11] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:11,508] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:11] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:11,679] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:11] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:23,091] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:23] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:34:26,192] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:26] "GET /analysis.html HTTP/1.1" 200 -
+[2023-09-05 22:34:31,103] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:31] "[33mGET /home.html HTTP/1.1[0m" 404 -
+[2023-09-05 22:34:35,888] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:35] "[33mGET /home.html HTTP/1.1[0m" 404 -
+[2023-09-05 22:34:39,878] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:39] "GET /analysis.html HTTP/1.1" 200 -
+[2023-09-05 22:34:43,025] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:43] "GET /prediction.html HTTP/1.1" 200 -
+[2023-09-05 22:34:46,575] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:46] "GET /prediction/batch HTTP/1.1" 200 -
+[2023-09-05 22:34:54,663] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:54,664] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:54] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:55,626] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:55,627] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:55] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:55,630] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:55,632] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:55] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:55,970] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:55,971] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:55] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:56,003] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:56,007] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:56] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:56,396] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:56,399] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:56] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:56,416] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:56,417] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:56] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:56,770] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:56,773] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:56] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:56,783] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:56,785] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:56] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:57,612] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:57,621] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:57] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:57,636] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:57,638] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:57] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:58,017] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:58,021] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:58] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:34:58,022] 88 root - INFO - Creating model resolver object
+[2023-09-05 22:34:58,023] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:34:58] "POST /predict_batch HTTP/1.1" 200 -
+[2023-09-05 22:35:57,190] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:35:57] "GET /prediction/batch HTTP/1.1" 200 -
+[2023-09-05 22:35:57,754] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:35:57] "GET /prediction/batch HTTP/1.1" 200 -
+[2023-09-05 22:35:57,987] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:35:57] "GET /prediction/batch HTTP/1.1" 200 -
+[2023-09-05 22:35:58,012] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:35:58] "GET /prediction/batch HTTP/1.1" 200 -
+[2023-09-05 22:35:58,017] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:35:58] "GET /prediction/batch HTTP/1.1" 200 -
+[2023-09-05 22:36:00,822] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:36:00] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:36:01,327] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:36:01] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:36:28,882] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:36:28] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:36:52,519] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:36:52] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:36:53,969] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:36:53] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:36:54,427] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:36:54] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:36:55,379] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:36:55] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:37:17,393] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:37:17] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:37:18,221] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:37:18] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:39:42,306] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:39:42] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:39:50,560] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:39:50] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:40:04,162] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:40:04] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:40:05,121] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:40:05] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:40:05,488] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 22:40:05] "GET / HTTP/1.1" 200 -
+[2023-09-05 22:40:09,478] 187 werkzeug - INFO -  * Detected change in 'f:\\shipping_pricing_prediction\\app.py', reloading

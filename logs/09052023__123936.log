@@ -1,0 +1,254 @@
+[2023-09-05 12:39:40,129] 15 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Ingestion <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-09-05 12:39:40,130] 23 root - INFO - Exporting collection data as pandas dataframe
+[2023-09-05 12:39:40,130] 28 root - INFO - Reading data from database: clean_Logistic and collection: clean_shipping_data
+[2023-09-05 12:40:32,142] 32 root - INFO - Dropping column: _id
+[2023-09-05 12:40:32,160] 34 root - INFO - Columns in dataframe : Index(['ID', 'Project_Code', 'PQ', 'PO_SO', 'ASN_DN', 'Country', 'Managed_By',
+       'Fulfill_Via', 'Vendor_INCO_Term', 'Shipment_Mode',
+       'PQ_First_Sent_to_Client_Date', 'PO_Sent_to_Vendor_Date',
+       'Scheduled_Delivery_Date', 'Delivered_to_Client_Date',
+       'Delivery_Recorded_Date', 'Product_Group', 'Sub_Classification',
+       'Vendor', 'Item_Description', 'Molecule/Test_Type', 'Brand', 'Dosage',
+       'Dosage_Form', 'Unit_of_Measure_Per_Pack', 'Line_Item_Quantity',
+       'Line_Item_Value', 'Pack_Price', 'Unit_Price', 'Manufacturing_Site',
+       'First_Line_Designation', 'Weight_Kilograms', 'Freight_Cost_USD',
+       'Line_Item_Insurance_USD', 'Days_to_Process'],
+      dtype='object')
+[2023-09-05 12:40:32,179] 35 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-09-05 12:40:32,180] 37 root - INFO -  ID : int64
+[2023-09-05 12:40:32,180] 37 root - INFO -  Project_Code : object
+[2023-09-05 12:40:32,180] 37 root - INFO -  PQ : object
+[2023-09-05 12:40:32,180] 37 root - INFO -  PO_SO : object
+[2023-09-05 12:40:32,181] 37 root - INFO -  ASN_DN : object
+[2023-09-05 12:40:32,181] 37 root - INFO -  Country : object
+[2023-09-05 12:40:32,181] 37 root - INFO -  Managed_By : object
+[2023-09-05 12:40:32,182] 37 root - INFO -  Fulfill_Via : object
+[2023-09-05 12:40:32,182] 37 root - INFO -  Vendor_INCO_Term : object
+[2023-09-05 12:40:32,182] 37 root - INFO -  Shipment_Mode : object
+[2023-09-05 12:40:32,182] 37 root - INFO -  PQ_First_Sent_to_Client_Date : object
+[2023-09-05 12:40:32,183] 37 root - INFO -  PO_Sent_to_Vendor_Date : object
+[2023-09-05 12:40:32,183] 37 root - INFO -  Scheduled_Delivery_Date : object
+[2023-09-05 12:40:32,183] 37 root - INFO -  Delivered_to_Client_Date : object
+[2023-09-05 12:40:32,183] 37 root - INFO -  Delivery_Recorded_Date : object
+[2023-09-05 12:40:32,184] 37 root - INFO -  Product_Group : object
+[2023-09-05 12:40:32,184] 37 root - INFO -  Sub_Classification : object
+[2023-09-05 12:40:32,184] 37 root - INFO -  Vendor : object
+[2023-09-05 12:40:32,184] 37 root - INFO -  Item_Description : object
+[2023-09-05 12:40:32,185] 37 root - INFO -  Molecule/Test_Type : object
+[2023-09-05 12:40:32,185] 37 root - INFO -  Brand : object
+[2023-09-05 12:40:32,185] 37 root - INFO -  Dosage : object
+[2023-09-05 12:40:32,185] 37 root - INFO -  Dosage_Form : object
+[2023-09-05 12:40:32,186] 37 root - INFO -  Unit_of_Measure_Per_Pack : int64
+[2023-09-05 12:40:32,186] 37 root - INFO -  Line_Item_Quantity : int64
+[2023-09-05 12:40:32,186] 37 root - INFO -  Line_Item_Value : float64
+[2023-09-05 12:40:32,186] 37 root - INFO -  Pack_Price : float64
+[2023-09-05 12:40:32,187] 37 root - INFO -  Unit_Price : float64
+[2023-09-05 12:40:32,187] 37 root - INFO -  Manufacturing_Site : object
+[2023-09-05 12:40:32,187] 37 root - INFO -  First_Line_Designation : object
+[2023-09-05 12:40:32,187] 37 root - INFO -  Weight_Kilograms : float64
+[2023-09-05 12:40:32,187] 37 root - INFO -  Freight_Cost_USD : float64
+[2023-09-05 12:40:32,188] 37 root - INFO -  Line_Item_Insurance_USD : float64
+[2023-09-05 12:40:32,188] 37 root - INFO -  Days_to_Process : int64
+[2023-09-05 12:40:32,188] 29 root - INFO -  Shape of df (10324, 34)
+[2023-09-05 12:40:32,188] 31 root - INFO - Save data in feature store
+[2023-09-05 12:40:32,264] 34 root - INFO - Any duplicate records:0
+[2023-09-05 12:40:32,265] 37 root - INFO - Dropping duplicate record
+[2023-09-05 12:40:32,366] 40 root - INFO -  Rechecking any duplicate record or not
+[2023-09-05 12:40:32,443] 41 root - INFO - Duplicate record :0
+[2023-09-05 12:40:32,481] 44 root - INFO - Any missing value inside datasetFreight_Cost_USD                2445
+Dosage                          1736
+Weight_Kilograms                1507
+Shipment_Mode                    360
+Line_Item_Insurance_USD          287
+ID                                 0
+Line_Item_Quantity                 0
+Brand                              0
+Dosage_Form                        0
+Unit_of_Measure_Per_Pack           0
+Pack_Price                         0
+Line_Item_Value                    0
+Item_Description                   0
+Unit_Price                         0
+Manufacturing_Site                 0
+First_Line_Designation             0
+Molecule/Test_Type                 0
+Vendor                             0
+Project_Code                       0
+Sub_Classification                 0
+Product_Group                      0
+Delivery_Recorded_Date             0
+Delivered_to_Client_Date           0
+Scheduled_Delivery_Date            0
+PO_Sent_to_Vendor_Date             0
+PQ_First_Sent_to_Client_Date       0
+Vendor_INCO_Term                   0
+Fulfill_Via                        0
+Managed_By                         0
+Country                            0
+ASN_DN                             0
+PO_SO                              0
+PQ                                 0
+Days_to_Process                    0
+dtype: int64
+[2023-09-05 12:40:32,482] 46 root - INFO - Create feature store folder if not available
+[2023-09-05 12:40:32,483] 50 root - INFO - Save df to feature store folder
+[2023-09-05 12:40:32,830] 54 root - INFO - base df shape-->(10324, 34)
+[2023-09-05 12:40:32,830] 56 root - INFO - split dataset into train and test set
+[2023-09-05 12:40:32,846] 60 root - INFO - create dataset directory folder if not available
+[2023-09-05 12:40:32,875] 65 root - INFO - Save df to feature store folder
+[2023-09-05 12:40:33,257] 70 root - INFO - train df shape--->(8259, 34)
+[2023-09-05 12:40:33,257] 72 root - INFO - test df shape-->(2065, 34)
+[2023-09-05 12:40:33,258] 79 root - INFO - Data ingestion artifact: DataIngestionArtifact(feature_store_file_path='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\data_ingestion\\feature_store\\clean_SCMS_Delivery_History_Dataset.csv', train_file_path='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\data_ingestion\\dataset\\train.csv', test_file_path='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\data_ingestion\\dataset\\test.csv')
+[2023-09-05 12:40:33,295] 23 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Validation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-09-05 12:40:33,295] 162 root - INFO - Reading base dataframe
+[2023-09-05 12:40:33,438] 164 root - INFO - base_df shape-->(10324, 34)
+[2023-09-05 12:40:33,438] 166 root - INFO - Reading train dataframe
+[2023-09-05 12:40:33,548] 168 root - INFO - train_df shape-->(8259, 34)
+[2023-09-05 12:40:33,548] 170 root - INFO - Reading test data frame
+[2023-09-05 12:40:33,587] 172 root - INFO - test_df shape-->(2065, 34)
+[2023-09-05 12:40:33,698] 174 root - INFO - Any duplicate records inside base_df ,train_df,test_df(0, 0, 0)
+[2023-09-05 12:40:33,698] 177 root - INFO - Dropping duplicate from base_df ,train_df,test_df
+[2023-09-05 12:40:33,792] 182 root - INFO - After dropping duplicate 
+[2023-09-05 12:40:33,910] 183 root - INFO - Duplicate count in base_df,train_df,test_df-->(0, 0, 0)
+[2023-09-05 12:40:33,910] 36 root - INFO -  Columns to drop :['ID', 'Project_Code', 'PQ', 'Managed_By', 'PO_Sent_to_Vendor_Date', 'Product_Group', 'Scheduled_Delivery_Date', 'Delivered_to_Client_Date', 'Delivery_Recorded_Date', 'Vendor', 'Item_Description', 'Molecule/Test_Type', 'Brand', 'Dosage', 'Dosage_Form', 'Manufacturing_Site', 'PQ_First_Sent_to_Client_Date', 'Country', 'Fulfill_Via', 'Vendor_INCO_Term', 'Unit_of_Measure_Per_Pack', 'Shipment_Mode', 'First_Line_Designation', 'Line_Item_Insurance_USD', 'Days_to_Process']
+[2023-09-05 12:40:33,914] 41 root - INFO - After dropping columns from df shape of df(10324, 9)
+[2023-09-05 12:40:33,914] 36 root - INFO -  Columns to drop :['ID', 'Project_Code', 'PQ', 'Managed_By', 'PO_Sent_to_Vendor_Date', 'Product_Group', 'Scheduled_Delivery_Date', 'Delivered_to_Client_Date', 'Delivery_Recorded_Date', 'Vendor', 'Item_Description', 'Molecule/Test_Type', 'Brand', 'Dosage', 'Dosage_Form', 'Manufacturing_Site', 'PQ_First_Sent_to_Client_Date', 'Country', 'Fulfill_Via', 'Vendor_INCO_Term', 'Unit_of_Measure_Per_Pack', 'Shipment_Mode', 'First_Line_Designation', 'Line_Item_Insurance_USD', 'Days_to_Process']
+[2023-09-05 12:40:33,917] 41 root - INFO - After dropping columns from df shape of df(8259, 9)
+[2023-09-05 12:40:33,917] 36 root - INFO -  Columns to drop :['ID', 'Project_Code', 'PQ', 'Managed_By', 'PO_Sent_to_Vendor_Date', 'Product_Group', 'Scheduled_Delivery_Date', 'Delivered_to_Client_Date', 'Delivery_Recorded_Date', 'Vendor', 'Item_Description', 'Molecule/Test_Type', 'Brand', 'Dosage', 'Dosage_Form', 'Manufacturing_Site', 'PQ_First_Sent_to_Client_Date', 'Country', 'Fulfill_Via', 'Vendor_INCO_Term', 'Unit_of_Measure_Per_Pack', 'Shipment_Mode', 'First_Line_Designation', 'Line_Item_Insurance_USD', 'Days_to_Process']
+[2023-09-05 12:40:33,919] 41 root - INFO - After dropping columns from df shape of df(2065, 9)
+[2023-09-05 12:40:33,920] 192 root - INFO - Train dataframe shape after dropping columns: (8259, 9)
+[2023-09-05 12:40:33,920] 193 root - INFO - Test dataframe shape after dropping columns: (2065, 9)
+[2023-09-05 12:40:33,920] 195 root - INFO - Is all required columns present in train df
+[2023-09-05 12:40:33,920] 52 root - INFO - base columnsIndex(['PO_SO', 'ASN_DN', 'Sub_Classification', 'Line_Item_Quantity',
+       'Line_Item_Value', 'Pack_Price', 'Unit_Price', 'Weight_Kilograms',
+       'Freight_Cost_USD'],
+      dtype='object')
+[2023-09-05 12:40:33,921] 54 root - INFO - current_columnsIndex(['PO_SO', 'ASN_DN', 'Sub_Classification', 'Line_Item_Quantity',
+       'Line_Item_Value', 'Pack_Price', 'Unit_Price', 'Weight_Kilograms',
+       'Freight_Cost_USD'],
+      dtype='object')
+[2023-09-05 12:40:33,921] 197 root - INFO - Is all required columns present in test df
+[2023-09-05 12:40:33,921] 52 root - INFO - base columnsIndex(['PO_SO', 'ASN_DN', 'Sub_Classification', 'Line_Item_Quantity',
+       'Line_Item_Value', 'Pack_Price', 'Unit_Price', 'Weight_Kilograms',
+       'Freight_Cost_USD'],
+      dtype='object')
+[2023-09-05 12:40:33,921] 54 root - INFO - current_columnsIndex(['PO_SO', 'ASN_DN', 'Sub_Classification', 'Line_Item_Quantity',
+       'Line_Item_Value', 'Pack_Price', 'Unit_Price', 'Weight_Kilograms',
+       'Freight_Cost_USD'],
+      dtype='object')
+[2023-09-05 12:40:33,922] 202 root - INFO - As all column are available in train df hence detecting data drift
+[2023-09-05 12:40:33,924] 120 root - INFO - Hypothesis Line_Item_Quantity: int64, int64 
+[2023-09-05 12:40:33,947] 120 root - INFO - Hypothesis Line_Item_Value: float64, float64 
+[2023-09-05 12:40:33,981] 120 root - INFO - Hypothesis Pack_Price: float64, float64 
+[2023-09-05 12:40:33,988] 120 root - INFO - Hypothesis Unit_Price: float64, float64 
+[2023-09-05 12:40:34,017] 120 root - INFO - Hypothesis Weight_Kilograms: float64, float64 
+[2023-09-05 12:40:34,048] 120 root - INFO - Hypothesis Freight_Cost_USD: float64, float64 
+[2023-09-05 12:40:34,074] 138 root - INFO - Hypothesis PO_SO: object, object 
+[2023-09-05 12:40:34,083] 138 root - INFO - Hypothesis ASN_DN: object, object 
+[2023-09-05 12:40:34,091] 138 root - INFO - Hypothesis Sub_Classification: object, object 
+[2023-09-05 12:40:34,098] 205 root - INFO - As all column are available in test df hence detecting data drift
+[2023-09-05 12:40:34,102] 120 root - INFO - Hypothesis Line_Item_Quantity: int64, int64 
+[2023-09-05 12:40:34,110] 120 root - INFO - Hypothesis Line_Item_Value: float64, float64 
+[2023-09-05 12:40:34,114] 120 root - INFO - Hypothesis Pack_Price: float64, float64 
+[2023-09-05 12:40:34,119] 120 root - INFO - Hypothesis Unit_Price: float64, float64 
+[2023-09-05 12:40:34,125] 120 root - INFO - Hypothesis Weight_Kilograms: float64, float64 
+[2023-09-05 12:40:34,130] 120 root - INFO - Hypothesis Freight_Cost_USD: float64, float64 
+[2023-09-05 12:40:34,134] 138 root - INFO - Hypothesis PO_SO: object, object 
+[2023-09-05 12:40:34,141] 138 root - INFO - Hypothesis ASN_DN: object, object 
+[2023-09-05 12:40:34,146] 138 root - INFO - Hypothesis Sub_Classification: object, object 
+[2023-09-05 12:40:34,150] 211 root - INFO - Saving validated train and test dataframe
+[2023-09-05 12:40:34,286] 218 root - INFO - Write reprt in yaml file
+[2023-09-05 12:40:34,298] 228 root - INFO - Data validation artifact: DataValidationArtifact(report_file_path='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\data_validation\\report.yaml', validated_train_file_path='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\data_validation\\validated_train.csv', validated_test_file_path='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\data_validation\\validated_test.csv')
+[2023-09-05 12:40:34,299] 25 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Transformation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-09-05 12:40:34,299] 69 root - INFO - Loading validated train and test file path
+[2023-09-05 12:40:34,299] 73 root - INFO - Loading train and test dataframes from validation
+[2023-09-05 12:40:34,331] 77 root - INFO - Shape of Train df: (8259, 9)
+[2023-09-05 12:40:34,332] 78 root - INFO - Shape of Test df: (2065, 9)
+[2023-09-05 12:40:34,332] 80 root - INFO - Train df columns: ['PO_SO', 'ASN_DN', 'Sub_Classification', 'Line_Item_Quantity', 'Line_Item_Value', 'Pack_Price', 'Unit_Price', 'Weight_Kilograms', 'Freight_Cost_USD']
+[2023-09-05 12:40:34,332] 81 root - INFO - Test df columns: ['PO_SO', 'ASN_DN', 'Sub_Classification', 'Line_Item_Quantity', 'Line_Item_Value', 'Pack_Price', 'Unit_Price', 'Weight_Kilograms', 'Freight_Cost_USD']
+[2023-09-05 12:40:34,336] 87 root - INFO - Input feature train df and test df shape: ((8259, 8), (2065, 8))
+[2023-09-05 12:40:34,337] 88 root - INFO - Input_feature_train_df_columns: ['PO_SO', 'ASN_DN', 'Sub_Classification', 'Line_Item_Quantity', 'Pack_Price', 'Unit_Price', 'Weight_Kilograms', 'Freight_Cost_USD']
+[2023-09-05 12:40:34,337] 89 root - INFO - Input_feature_test_df_columns: ['PO_SO', 'ASN_DN', 'Sub_Classification', 'Line_Item_Quantity', 'Pack_Price', 'Unit_Price', 'Weight_Kilograms', 'Freight_Cost_USD']
+[2023-09-05 12:40:34,338] 95 root - INFO - Shape of target feature in train and test: ((8259,), (2065,))
+[2023-09-05 12:40:34,338] 96 root - INFO - Before applying log transformation on target features
+[2023-09-05 12:40:34,340] 105 root - INFO - After reshaping: ((8259, 1), (2065, 1))
+[2023-09-05 12:40:34,340] 108 root - INFO - Getting transformation object from pipeline
+[2023-09-05 12:40:34,340] 39 root - INFO - Applying categorical transformer
+[2023-09-05 12:40:34,340] 45 root - INFO - Applying numerical transformer
+[2023-09-05 12:40:34,341] 112 root - INFO - Fitting transformers on train data
+[2023-09-05 12:40:34,396] 116 root - INFO - Transforming train and test data using fitted transformers
+[2023-09-05 12:40:34,432] 120 root - INFO - Shape of input feature train and test arr: ((8259, 13), (2065, 13))
+[2023-09-05 12:40:34,432] 123 root - INFO - Concatenating input feature with target feature in train and test
+[2023-09-05 12:40:34,434] 131 root - INFO - shape of combined input and target feature in train and test((8259, 14), (2065, 14))
+[2023-09-05 12:40:34,434] 134 root - INFO - Saving transformed train array data
+[2023-09-05 12:40:34,464] 138 root - INFO - Saving transformed test array data
+[2023-09-05 12:40:34,467] 142 root - INFO - Saving transformer object 
+[2023-09-05 12:40:34,467] 78 root - INFO - Entered the save_object method of utils
+[2023-09-05 12:40:34,474] 82 root - INFO - Exited the save_object method of utils
+[2023-09-05 12:40:34,474] 151 root - INFO - Data transformation object DataTransformationArtifact(transform_object_path='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\data_transformation\\transformer\\transformer.pkl', transformed_train_path='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\data_transformation\\transformed\\train.npz', transformed_test_path='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\data_transformation\\transformed\\test.npz')
+[2023-09-05 12:40:34,475] 17 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Model Trainer <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-09-05 12:40:34,475] 35 root - INFO - loading train and test numpy array for model training 
+[2023-09-05 12:40:34,479] 39 root - INFO - Loaded train arr shape: (8259, 14)
+[2023-09-05 12:40:34,479] 40 root - INFO - Loaded test arr shape: (2065, 14)
+[2023-09-05 12:40:34,480] 45 root - INFO - Shape of X_train, X_test ---> (8259, 13), (2065, 13)
+[2023-09-05 12:40:34,480] 47 root - INFO - Train the model
+[2023-09-05 12:40:35,023] 50 root - INFO - Calculating r2-score train
+[2023-09-05 12:40:35,034] 54 root - INFO - Calculating r2_score test
+[2023-09-05 12:40:35,039] 58 root - INFO - Train and test r2 score--->(0.9980829158269503, 0.9977126864981519)
+[2023-09-05 12:40:35,040] 60 root - INFO - Calculating MSE train score
+[2023-09-05 12:40:35,041] 63 root - INFO - Calculating MSE test score
+[2023-09-05 12:40:35,042] 66 root - INFO - Train and test MSE score ---->(0.01288717854168291, 0.01512310885185263)
+[2023-09-05 12:40:35,043] 77 root - INFO - Adjusted R2 score for train dataset: 0.9981
+[2023-09-05 12:40:35,043] 78 root - INFO - Adjusted R2 score for test dataset: 0.9977
+[2023-09-05 12:40:35,043] 80 root - INFO - Checking if our model is underfitting or not
+[2023-09-05 12:40:35,043] 84 root - INFO - Checking if our model is overfiiting or not
+[2023-09-05 12:40:35,043] 89 root - INFO - Saving trained model
+[2023-09-05 12:40:35,044] 78 root - INFO - Entered the save_object method of utils
+[2023-09-05 12:40:35,051] 82 root - INFO - Exited the save_object method of utils
+[2023-09-05 12:40:35,052] 92 root - INFO - Prepare the artifact
+[2023-09-05 12:40:35,052] 101 root - INFO - Model trainer artifact: ModelTrainerArtifact(model_path='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\model_trainer\\model\\model.pkl', r2_score_train=0.9980829158269503, r2_score_test=0.9977126864981519, adjusted_r2_score_train=0.9980798931351068, adjusted_r2_score_test=0.9976981886553806, mse_train=0.01288717854168291, mse_test=0.01512310885185263)
+[2023-09-05 12:40:35,052] 20 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  Model Evaluation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-09-05 12:40:35,053] 32 root - INFO - If the saved model folder has a model, then we will compare which model is best trained or the model from the saved model folder.
+[2023-09-05 12:40:35,053] 23 root - INFO - dir _name:['0', '1']
+[2023-09-05 12:40:35,054] 28 root - INFO - latest dir names:1
+[2023-09-05 12:40:35,054] 43 root - INFO - Finding location of transformer model
+[2023-09-05 12:40:35,054] 23 root - INFO - dir _name:['0', '1']
+[2023-09-05 12:40:35,054] 28 root - INFO - latest dir names:1
+[2023-09-05 12:40:35,055] 23 root - INFO - dir _name:['0', '1']
+[2023-09-05 12:40:35,055] 28 root - INFO - latest dir names:1
+[2023-09-05 12:40:35,055] 48 root - INFO - Loading previous trained model
+[2023-09-05 12:40:35,067] 53 root - INFO - Loading currently trained model
+[2023-09-05 12:40:35,079] 58 root - INFO - Loading test df for prediction
+[2023-09-05 12:40:35,090] 60 root - INFO - Test df shape (2065, 9)
+[2023-09-05 12:40:35,091] 62 root - INFO - Target_df shape (2065,)
+[2023-09-05 12:40:35,091] 65 root - INFO - Transforming input features using the previous trained transformer
+[2023-09-05 12:40:35,113] 70 root - INFO - Predicting and calculating R-squared score for the previous trained model
+[2023-09-05 12:40:35,120] 73 root - INFO - R2 score using the previous trained model: -0.20910925073301612
+[2023-09-05 12:40:35,121] 76 root - INFO - Transforming input features using the current trained transformer
+[2023-09-05 12:40:35,141] 81 root - INFO - Predicting and calculating R-squared score for the currently trained model
+[2023-09-05 12:40:35,150] 84 root - INFO - R2 score using the current trained model: -0.20910923512720792
+[2023-09-05 12:40:35,153] 94 root - INFO - Previous trained model MSE: 153021607483.31802
+[2023-09-05 12:40:35,155] 96 root - INFO - Currently trained model MSE: 153021607483.31802
+[2023-09-05 12:40:35,155] 102 root - INFO - Previous model adjusted_r2_score is -0.216773034379788
+[2023-09-05 12:40:35,155] 104 root - INFO - Currently trained model adjusted r2_score is -0.2167730186750645
+[2023-09-05 12:40:35,155] 115 root - INFO - Model evaluation artifact: ModelEvaluationArtifact(is_model_accepted=True, is_accuracy_improved=1.5704723521636765e-08)
+[2023-09-05 12:40:35,156] 14 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Model Pusher <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-09-05 12:40:35,157] 27 root - INFO - Loading transformer model and target encoder
+[2023-09-05 12:40:35,171] 32 root - INFO - Saving model into model pusher directory
+[2023-09-05 12:40:35,171] 78 root - INFO - Entered the save_object method of utils
+[2023-09-05 12:40:35,218] 82 root - INFO - Exited the save_object method of utils
+[2023-09-05 12:40:35,218] 78 root - INFO - Entered the save_object method of utils
+[2023-09-05 12:40:35,228] 82 root - INFO - Exited the save_object method of utils
+[2023-09-05 12:40:35,228] 38 root - INFO - Saving model in saved model dir
+[2023-09-05 12:40:35,229] 23 root - INFO - dir _name:['0', '1']
+[2023-09-05 12:40:35,229] 28 root - INFO - latest dir names:1
+[2023-09-05 12:40:35,229] 23 root - INFO - dir _name:['0', '1']
+[2023-09-05 12:40:35,230] 28 root - INFO - latest dir names:1
+[2023-09-05 12:40:35,230] 23 root - INFO - dir _name:['0', '1']
+[2023-09-05 12:40:35,230] 28 root - INFO - latest dir names:1
+[2023-09-05 12:40:35,231] 23 root - INFO - dir _name:['0', '1']
+[2023-09-05 12:40:35,231] 28 root - INFO - latest dir names:1
+[2023-09-05 12:40:35,231] 78 root - INFO - Entered the save_object method of utils
+[2023-09-05 12:40:35,245] 82 root - INFO - Exited the save_object method of utils
+[2023-09-05 12:40:35,245] 78 root - INFO - Entered the save_object method of utils
+[2023-09-05 12:40:35,262] 82 root - INFO - Exited the save_object method of utils
+[2023-09-05 12:40:35,262] 47 root - INFO - Model pusher artifact: ModelPusherArtifact(pusher_model_dir='F:\\Shipping_Pricing_Prediction\\artifact\\09052023__123940\\model_pusher\\saved_models', saved_model_dir='saved_models')

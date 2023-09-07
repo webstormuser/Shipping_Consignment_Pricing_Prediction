@@ -1,0 +1,14 @@
+[2023-09-05 17:30:45,485] 187 werkzeug - WARNING -  * Debugger is active!
+[2023-09-05 17:30:45,517] 187 werkzeug - INFO -  * Debugger PIN: 104-117-335
+[2023-09-05 17:30:57,292] 74 root - ERROR - Error occured :'CustomData' object has no attribute 'Freight_Cost_USD'
+[2023-09-05 17:30:57,356] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:30:57] "[35m[1mPOST /predict_data HTTP/1.1[0m" 500 -
+[2023-09-05 17:30:58,793] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:30:58] "GET /predict_data?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+[2023-09-05 17:30:58,795] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:30:58] "GET /predict_data?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+[2023-09-05 17:30:58,842] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:30:58] "GET /predict_data?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+[2023-09-05 17:30:58,853] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:30:58] "[36mGET /predict_data?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-09-05 17:37:53,005] 74 root - ERROR - Error occured :'CustomData' object has no attribute 'Freight_Cost_USD'
+[2023-09-05 17:37:53,360] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:37:53] "[35m[1mPOST /predict_data HTTP/1.1[0m" 500 -
+[2023-09-05 17:37:53,636] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:37:53] "[36mGET /predict_data?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2023-09-05 17:37:53,770] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:37:53] "[36mGET /predict_data?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-09-05 17:37:54,119] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:37:54] "[36mGET /predict_data?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-09-05 17:37:54,901] 187 werkzeug - INFO -  * Detected change in 'F:\\Shipping_Pricing_Prediction\\shipping_prediction\\pipeline\\predict_pipeline.py', reloading

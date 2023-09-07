@@ -1,0 +1,13 @@
+[2023-09-05 17:48:36,046] 187 werkzeug - WARNING -  * Debugger is active!
+[2023-09-05 17:48:36,382] 187 werkzeug - INFO -  * Debugger PIN: 104-117-335
+[2023-09-05 17:49:15,078] 74 root - ERROR - Error occured :cannot unpack non-iterable module object
+[2023-09-05 17:49:15,210] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:49:15] "[35m[1mPOST /predict_data HTTP/1.1[0m" 500 -
+[2023-09-05 17:49:16,370] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:49:16] "[36mGET /predict_data?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-09-05 17:49:16,372] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:49:16] "GET /predict_data?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+[2023-09-05 17:49:16,467] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:49:16] "[36mGET /predict_data?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-09-05 17:49:23,712] 74 root - ERROR - Error occured :cannot unpack non-iterable module object
+[2023-09-05 17:49:23,983] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:49:23] "[35m[1mPOST /predict_data HTTP/1.1[0m" 500 -
+[2023-09-05 17:49:24,260] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:49:24] "[36mGET /predict_data?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2023-09-05 17:49:24,264] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:49:24] "[36mGET /predict_data?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-09-05 17:49:24,449] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:49:24] "[36mGET /predict_data?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-09-05 17:49:25,342] 187 werkzeug - INFO -  * Detected change in 'f:\\shipping_pricing_prediction\\shipping_prediction\\pipeline\\predict_pipeline.py', reloading

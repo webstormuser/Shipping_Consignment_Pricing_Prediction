@@ -1,0 +1,5 @@
+[2023-09-05 17:14:32,330] 187 werkzeug - WARNING -  * Debugger is active!
+[2023-09-05 17:14:32,359] 187 werkzeug - INFO -  * Debugger PIN: 104-117-335
+[2023-09-05 17:14:43,535] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:14:43] "POST /predict_data HTTP/1.1" 200 -
+[2023-09-05 17:21:03,146] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:21:03] "POST /predict_data HTTP/1.1" 200 -
+[2023-09-05 17:21:04,880] 187 werkzeug - INFO -  * Detected change in 'F:\\Shipping_Pricing_Prediction\\shipping_prediction\\pipeline\\predict_pipeline.py', reloading

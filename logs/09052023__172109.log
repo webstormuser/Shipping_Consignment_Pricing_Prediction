@@ -1,0 +1,12 @@
+[2023-09-05 17:21:10,959] 187 werkzeug - WARNING -  * Debugger is active!
+[2023-09-05 17:21:10,988] 187 werkzeug - INFO -  * Debugger PIN: 104-117-335
+[2023-09-05 17:21:22,297] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:21:22] "POST /predict_data HTTP/1.1" 200 -
+[2023-09-05 17:21:28,397] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:21:28] "[31m[1mGET /predict_data HTTP/1.1[0m" 405 -
+[2023-09-05 17:21:54,703] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:21:54] "[31m[1mGET /predict_data HTTP/1.1[0m" 405 -
+[2023-09-05 17:21:55,650] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:21:55] "[31m[1mGET /predict_data HTTP/1.1[0m" 405 -
+[2023-09-05 17:21:56,074] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:21:56] "[31m[1mGET /predict_data HTTP/1.1[0m" 405 -
+[2023-09-05 17:21:56,450] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:21:56] "[31m[1mGET /predict_data HTTP/1.1[0m" 405 -
+[2023-09-05 17:21:57,228] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:21:57] "[31m[1mGET /predict_data HTTP/1.1[0m" 405 -
+[2023-09-05 17:21:59,581] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:21:59] "[31m[1mGET /predict_data HTTP/1.1[0m" 405 -
+[2023-09-05 17:22:00,134] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 17:22:00] "[31m[1mGET /predict_data HTTP/1.1[0m" 405 -
+[2023-09-05 17:22:01,591] 187 werkzeug - INFO -  * Detected change in 'f:\\shipping_pricing_prediction\\app.py', reloading

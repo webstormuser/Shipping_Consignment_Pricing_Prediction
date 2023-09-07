@@ -1,0 +1,16 @@
+[2023-09-05 18:21:33,754] 187 werkzeug - WARNING -  * Debugger is active!
+[2023-09-05 18:21:33,786] 187 werkzeug - INFO -  * Debugger PIN: 104-117-335
+[2023-09-05 18:22:00,556] 76 root - ERROR - Error occured :cannot import name 'attach_enctype_error_multidict' from partially initialized module 'flask.debughelpers' (most likely due to a circular import) (f:\Shipping_Pricing_Prediction\myvenv\lib\site-packages\flask\debughelpers.py)
+[2023-09-05 18:22:01,224] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:22:01] "[35m[1mPOST /predict_data HTTP/1.1[0m" 500 -
+[2023-09-05 18:22:02,255] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:22:02] "[32mPOST /predict_data HTTP/1.1[0m" 302 -
+[2023-09-05 18:22:04,176] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:22:04] "[36mGET /predict_data?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-09-05 18:22:04,178] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:22:04] "GET /predict_data?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+[2023-09-05 18:22:05,121] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:22:05] "[32mPOST /predict_data HTTP/1.1[0m" 302 -
+[2023-09-05 18:22:05,202] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:22:05] "GET /?prediction=17730.96 HTTP/1.1" 200 -
+[2023-09-05 18:22:08,403] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:22:08] "GET /prediction.html HTTP/1.1" 200 -
+[2023-09-05 18:22:11,185] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:22:11] "GET /prediction/input HTTP/1.1" 200 -
+[2023-09-05 18:23:40,184] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:23:40] "[32mPOST /predict_data HTTP/1.1[0m" 302 -
+[2023-09-05 18:23:40,203] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:23:40] "GET /?prediction=17730.96 HTTP/1.1" 200 -
+[2023-09-05 18:24:59,639] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:24:59] "GET /prediction.html HTTP/1.1" 200 -
+[2023-09-05 18:25:03,460] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:25:03] "GET /prediction/batch HTTP/1.1" 200 -
+[2023-09-05 18:25:37,401] 187 werkzeug - INFO - 127.0.0.1 - - [05/Sep/2023 18:25:37] "GET /analysis.html HTTP/1.1" 200 -
