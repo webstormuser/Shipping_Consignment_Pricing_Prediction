@@ -62,5 +62,14 @@ For this approach I have used XGBRegressor as it is best suited .
 
     Flask app is created with User Interface to predict consignment shipping price inside a Web Application.
 
+# ScreenShot of Application 
 
+![Image Alt Text](Screenshots/Screenshot%202023-09-08%20at%2011-29-38%20Shipping%20Pricing%20Predictor.png)
 
+![Image Alt Text](Screenshots/Screenshot%202023-09-08%20at%2011-31-16%20Prediction.png)
+
+![Image Alt Text](Screenshots/Screenshot%202023-09-08%20at%2011-31-59%20Input%20Form.png)
+
+![Image Alt Text](Screenshots/Screenshot%202023-09-08%20at%2011-32-33%20Batch%20Prediction.png)
+
+![Image Alt Text](Screenshots/Screenshot%202023-09-08%20at%2011-33-53%20Batch%20Prediction%20-%20Copy.png)
