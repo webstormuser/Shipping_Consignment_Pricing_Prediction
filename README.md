@@ -23,4 +23,44 @@ For this approach I have used XGBRegressor as it is best suited .
 * create new environment 
     conda create -p venv python==3.9 
 
-* run reuquirements.txt file (pip install -r requirements.txt)
+* run reuquirements.txt file (pip install -r requirements.txt)          
+
+
+# Approach for the project
+
+ 1. Data Ingestion :
+
+   * Data is first read as csv and loaded as DataFrame from database .
+   * Data is then splited into train and test csv  for validation ,transformation and model training 
+
+2.  Data Validation :
+
+   * Here data is being validated about their distribution either they refer to same distribution in train and test csv refer to base csv 
+
+3. Data Transformation :
+   
+    * In this phase a ColumnTransformer Pipeline is created.
+
+    *  for Numeric Variables first SimpleImputer is applied with strategy median , then Robust  Scaling is performed on numeric data.
+    
+    * for Categorical Variables SimpleImputer is applied with most frequent strategy, then onehot encoding  performed , after this data is scaled with robust Scaler.
+    
+    * This preprocessor is saved as pickle file.
+
+
+4.  Model Training :
+
+    In this phase base model is tested . The best model found was XGBRegressor .
+    This model is saved as pickle file.
+
+
+5. Prediction Pipeline :
+
+    This pipeline converts given data into DataFrame and has various functions to load pickle files and predict the final results in python.
+
+6. Flask App creation :
+
+    Flask app is created with User Interface to predict consignment shipping price inside a Web Application.
+
+
+
