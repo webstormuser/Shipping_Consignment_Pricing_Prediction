@@ -1,0 +1,14 @@
+[2023-09-10 17:48:00,909] 187 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.43.186:80
+[2023-09-10 17:48:00,909] 187 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[2023-09-10 17:50:50,356] 187 werkzeug - INFO - 127.0.0.1 - - [10/Sep/2023 17:50:50] "GET / HTTP/1.1" 200 -
+[2023-09-10 17:50:51,455] 187 werkzeug - INFO - 127.0.0.1 - - [10/Sep/2023 17:50:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2023-09-10 17:50:55,213] 187 werkzeug - INFO - 127.0.0.1 - - [10/Sep/2023 17:50:55] "GET /analysis.html HTTP/1.1" 200 -
+[2023-09-10 17:51:03,369] 187 werkzeug - INFO - 127.0.0.1 - - [10/Sep/2023 17:51:03] "GET / HTTP/1.1" 200 -
+[2023-09-10 17:51:05,142] 187 werkzeug - INFO - 127.0.0.1 - - [10/Sep/2023 17:51:05] "GET /prediction.html HTTP/1.1" 200 -
+[2023-09-10 17:51:09,364] 187 werkzeug - INFO - 127.0.0.1 - - [10/Sep/2023 17:51:09] "GET /prediction/input HTTP/1.1" 200 -
+[2023-09-10 17:51:34,316] 187 werkzeug - INFO - 127.0.0.1 - - [10/Sep/2023 17:51:34] "[32mPOST /predict_data HTTP/1.1[0m" 302 -
+[2023-09-10 17:51:34,332] 187 werkzeug - INFO - 127.0.0.1 - - [10/Sep/2023 17:51:34] "GET /?prediction=3762.7874 HTTP/1.1" 200 -
+[2023-09-10 17:55:31,116] 187 werkzeug - INFO - 127.0.0.1 - - [10/Sep/2023 17:55:31] "GET / HTTP/1.1" 200 -
