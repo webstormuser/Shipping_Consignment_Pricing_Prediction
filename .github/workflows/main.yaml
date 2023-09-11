@@ -22,11 +22,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t testdockerashwini.azurecr.io/shipping_prediction:latest .
+          docker build -t ${{ secrets.ACR_REGISTRY_LOGIN_SERVER }}/shipping_prediction:latest .
 
       - name: Push Docker image
         run: |
-          docker push testdockerashwini.azurecr.io/shipping_prediction:latest
+          docker push ${{ secrets.ACR_REGISTRY_LOGIN_SERVER }}/shipping_prediction:latest
 
   deploy-to-azure:
     name: Deploy to Azure Web App
@@ -49,14 +49,14 @@ jobs:
           echo "ACR_REGISTRY_PASSWORD: ${{ secrets.ACR_REGISTRY_PASSWORD }}"
 
       - name: Log in to Azure Container Registry
-        run: docker login testdockerashwini.azurecr.io -u ${{ secrets.ACR_REGISTRY_USERNAME }} -p ${{ secrets.ACR_REGISTRY_PASSWORD }}
+        run: docker login ${{ secrets.ACR_REGISTRY_LOGIN_SERVER }} -u ${{ secrets.ACR_REGISTRY_USERNAME }} -p ${{ secrets.ACR_REGISTRY_PASSWORD }}
 
       - name: Pull Docker image
-        run: docker pull testdockerashwini.azurecr.io/shipping_prediction:latest
+        run: docker pull ${{ secrets.ACR_REGISTRY_LOGIN_SERVER }}/shipping_prediction:latest
 
       - name: Deploy Docker Compose
         run: |
-          export IMAGE_NAME="testdockerashwini.azurecr.io/shipping_prediction:latest"
+          export IMAGE_NAME="${{ secrets.ACR_REGISTRY_LOGIN_SERVER }}/shipping_prediction:latest"
           docker-compose -f docker-compose.yaml up -d
 
       - name: Docker System Prune to Remove Old Images
