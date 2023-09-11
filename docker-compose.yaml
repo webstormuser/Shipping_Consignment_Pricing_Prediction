@@ -6,7 +6,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - AZURE_User_name=${AZURE_User_name}
-      - AZURE_Password=${AZURE_Password}
-      - AZURE_Service_Publish_Profile=${AZURE_Service_Publish_Profile}
+      - ACR_REGISTRY_USERNAME=${ACR_REGISTRY_USERNAME}
+      - ACR_REGISTRY_PASSWORD=${ACR_REGISTRY_PASSWORD}
+      - AZURE_CREDENTIALS=${AZURE_CREDENTIALS}
+      - ACR_REGISTRY_NAME=${ACR_REGISTRY_NAME}
+      - ACR_REGISTRY_LOGIN_SERVER=${ACR_REGISTRY_LOGIN_SERVER}
       - MONGO_DB_URL=${MONGO_DB_URL}

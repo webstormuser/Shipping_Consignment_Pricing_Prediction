@@ -1,4 +1,4 @@
-name: Azure CI/CD for Consignment Shipping Price Prediction 
+name: Azure CI/CD for Consignment Shipping Price Prediction
 
 on:
   push:
@@ -20,9 +20,12 @@ jobs:
           username: ${{ secrets.AZURE_User_name }}
           password: ${{ secrets.AZURE_Password }}
 
-      - name: Build and Push container image
+      - name: Build Docker image
         run: |
           docker build -t testdockerashwini.azurecr.io/shipping_prediction:latest .
+
+      - name: Push Docker image
+        run: |
           docker push testdockerashwini.azurecr.io/shipping_prediction:latest
 
   deploy-to-azure:
@@ -49,7 +52,7 @@ jobs:
       - name: Deploy Docker Compose
         run: |
           export IMAGE_NAME="testdockerashwini.azurecr.io/shipping_prediction:latest"
-          docker-compose up -d
+          docker-compose -f docker-compose.yml up -d
 
       - name: Docker System Prune to Remove Old Images
         run: docker system prune -f
