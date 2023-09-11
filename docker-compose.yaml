@@ -1,6 +1,5 @@
-version: "2"
 services:
- application:
+  application:
     image: ${IMAGE_NAME}
     container_name: testdockerashwini.azurecr.io
     ports:
@@ -8,9 +7,8 @@ services:
     environment:
       - ACR_REGISTRY_USERNAME=${ACR_REGISTRY_USERNAME}
       - ACR_REGISTRY_PASSWORD=${ACR_REGISTRY_PASSWORD}
-      - AZURE_CREDENTIALS=${AZURE_CREDENTIALS}
       - ACR_REGISTRY_NAME=${ACR_REGISTRY_NAME}
       - ACR_REGISTRY_LOGIN_SERVER=${ACR_REGISTRY_LOGIN_SERVER}
-      - AZURE_WEBAPP_NAME ={AZURE_WEBAPP_NAME}
+      - AZURE_WEBAPP_NAME=${AZURE_WEBAPP_NAME}
       - AZURE_RESOURCE_GROUP=${AZURE_RESOURCE_GROUP}
       - MONGO_DB_URL=${MONGO_DB_URL}
