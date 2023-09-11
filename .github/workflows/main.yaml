@@ -61,3 +61,18 @@ jobs:
 
       - name: Docker System Prune to Remove Old Images
         run: docker system prune -f
+
+      - name: Get Azure Web App URL
+        id: webapp-url
+        run: |
+          az webapp show --name <your-web-app-name> --resource-group <your-resource-group> --query defaultHostName --output tsv
+        env:
+          AZURE_WEBAPP_NAME: <your-web-app-name>
+          AZURE_RESOURCE_GROUP: <your-resource-group>
+
+      - name: Display Azure Web App URL
+        run: |
+          echo "Azure Web App URL: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net"
+        env:
+          AZURE_WEBAPP_NAME: ${{ env.AZURE_WEBAPP_NAME }}
+
