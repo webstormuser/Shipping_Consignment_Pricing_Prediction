@@ -65,14 +65,13 @@ jobs:
       - name: Get Azure Web App URL
         id: webapp-url
         run: |
-          az webapp show --name <your-web-app-name> --resource-group <your-resource-group> --query defaultHostName --output tsv
+          az webapp show --name ${{secrets.AZURE_WEBAPP_NAME }} --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --query defaultHostName --output tsv
         env:
-          AZURE_WEBAPP_NAME: <your-web-app-name>
-          AZURE_RESOURCE_GROUP: <your-resource-group>
-
+          AZURE_WEBAPP_NAME: ${{ secrets.AZURE_WEBAPP_NAME }}
+          AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
       - name: Display Azure Web App URL
         run: |
-          echo "Azure Web App URL: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net"
+          echo "Azure Web App URL: https://${{ secrets.AZURE_WEBAPP_NAME }}.azurewebsites.net"
         env:
-          AZURE_WEBAPP_NAME: ${{ env.AZURE_WEBAPP_NAME }}
+          AZURE_WEBAPP_NAME: ${{ secrets.AZURE_WEBAPP_NAME }}
 
