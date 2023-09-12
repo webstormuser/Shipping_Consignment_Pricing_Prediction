@@ -13,7 +13,7 @@ jobs:
 
       - name: Upgrade Azure CLI
         run: az upgrade --yes
-        
+
       - name: Checkout Code
         uses: actions/checkout@v2
 
@@ -67,7 +67,7 @@ jobs:
       - name: Azure CLI Login
         run: |
           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
-          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }} # Add this line
+          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy Docker Compose
         run: |
