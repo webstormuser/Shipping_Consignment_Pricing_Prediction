@@ -49,21 +49,19 @@ jobs:
           echo "ACR_REGISTRY_PASSWORD: ${{ secrets.ACR_REGISTRY_PASSWORD }}"
           echo "AZURE_WEBAPP_NAME: ${{ secrets.AZURE_WEBAPP_NAME }}"
           echo "AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}"
-          echo "AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}"
-          echo "AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}"
-          echo "AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}"
-          echo "AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}" # Add this line
+          echo "AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}" 
+
+      - name: Azure CLI Login
+        run: az login
+
+      - name: Set Azure Subscription
+        run: az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Log in to Azure Container Registry
         run: docker login ${{ secrets.ACR_REGISTRY_LOGIN_SERVER }} -u ${{ secrets.ACR_REGISTRY_USERNAME }} -p ${{ secrets.ACR_REGISTRY_PASSWORD }}
 
       - name: Pull Docker image
         run: docker pull ${{ secrets.ACR_REGISTRY_LOGIN_SERVER }}/shipping_prediction:latest
-
-      - name: Azure CLI Login
-        run: |
-          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
-          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy Docker Compose
         run: |
