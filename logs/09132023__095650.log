@@ -1,0 +1,8 @@
+[2023-09-13 09:57:00,767] 187 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.43.186:80
+[2023-09-13 09:57:00,768] 187 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[2023-09-13 09:58:00,458] 187 werkzeug - INFO - 127.0.0.1 - - [13/Sep/2023 09:58:00] "GET / HTTP/1.1" 200 -
+[2023-09-13 09:58:06,793] 187 werkzeug - INFO - 127.0.0.1 - - [13/Sep/2023 09:58:06] "GET /analysis.html HTTP/1.1" 200 -
+[2023-09-13 09:58:21,949] 187 werkzeug - INFO - 127.0.0.1 - - [13/Sep/2023 09:58:21] "GET / HTTP/1.1" 200 -
