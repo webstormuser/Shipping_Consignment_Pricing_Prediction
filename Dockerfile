@@ -1,17 +1,8 @@
-# Use the official Python image as the base image
 FROM python:3.9-slim-buster
-
-# Set the working directory within the container
 WORKDIR /app
+COPY . /app
 
-# Copy only the requirements file into the container
-COPY requirements.txt /app/
+RUN apt update -y && apt install awscli -y
 
-# Install Python dependencies from requirements.txt
-RUN pip install -r requirements.txt
-
-# Copy the rest of the project files into the container
-COPY . /app/
-
-# Define the command to run when the container starts
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 unzip -y && pip install -r requirements.txt
 CMD ["python3", "app.py"]

@@ -15,7 +15,8 @@ from datetime import datetime
 
 load_dotenv()
 
-app = Flask(__name__)
+application= Flask(__name__)
+app=application
 
 @app.route('/')
 def home():
@@ -181,4 +182,7 @@ def download_prediction(filename):
 
     
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",port=80)   
+    try:
+        app.run(host='0.0.0.0',port=8080)   
+    except Exception as e:
+        raise ShippingException(e)
