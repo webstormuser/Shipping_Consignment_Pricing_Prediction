@@ -62,6 +62,22 @@ For this approach I have used XGBRegressor as it is best suited .
 
     Flask app is created with User Interface to predict consignment shipping price inside a Web Application.
 
+# Docker Setup In EC2 commands to be Executed
+#optinal
+
+sudo apt-get update -y
+
+sudo apt-get upgrade
+
+#required
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+sudo sh get-docker.sh
+
+sudo usermod -aG docker ubuntu
+
+newgrp docker
 # ScreenShot of Application 
 
 ![Image Alt Text](Screenshots/Screenshot%202023-09-08%20at%2011-29-38%20Shipping%20Pricing%20Predictor.png)
@@ -73,3 +89,5 @@ For this approach I have used XGBRegressor as it is best suited .
 ![Image Alt Text](Screenshots/Screenshot%202023-09-08%20at%2011-32-33%20Batch%20Prediction.png)
 
 ![Image Alt Text](Screenshots/Screenshot%202023-09-08%20at%2011-33-53%20Batch%20Prediction%20-%20Copy.png)
+
+
