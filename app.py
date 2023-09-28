@@ -9,7 +9,7 @@ from shipping_prediction.pipeline.predict_pipeline import CustomData,PredictPipe
 from shipping_prediction.utils import load_object
 from shipping_prediction.exception import ShippingException 
 from shipping_prediction.logger import logging
-from dotenv import load_dotenv
+from dotenv import load_dotenv 
 import tempfile 
 from datetime import datetime
 
