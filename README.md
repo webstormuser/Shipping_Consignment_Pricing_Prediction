@@ -79,6 +79,13 @@ sudo sh get-docker.sh
 sudo usermod -aG docker ubuntu
 
 newgrp docker
+
+# Deployemnt Link 
+ [url](http://52.23.245.72:8080/)
+
+# Project Demo 
+
+[watch the video here](https://drive.google.com/drive/folders/1uhA13zuZ9ghmrbCAkCE8b_CeqhTC0SPV)
 # ScreenShot of Application 
 
 ![Image Alt Text](Screenshots/Screenshot%202023-09-08%20at%2011-29-38%20Shipping%20Pricing%20Predictor.png)
