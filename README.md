@@ -85,8 +85,7 @@ newgrp docker
 
 # Project Demo 
 
-[watch the video here](https://drive.google.com/drive/folders/1uhA13zuZ9ghmrbCAkCE8b_CeqhTC0SPV)
-# ScreenShot of Application 
+[watch the video here](https://drive.google.com/file/d/1y62v4EAiqrQf_qYWHtV7Sx0vmvHDeyL6/view?usp=drive_link)
 
 ![Image Alt Text](Screenshots/Screenshot%202023-09-08%20at%2011-29-38%20Shipping%20Pricing%20Predictor.png)
 
